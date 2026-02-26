@@ -2,19 +2,42 @@
 
 import { useEffect } from "react";
 import Script from "next/script";
+import { usePathname } from "next/navigation";
 
 const GTM_ID = "GTM-5H2C27F8";
 const PIXEL_ID = "1474151797665505";
 
 export function TrackingProvider({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+
+  const sendCAPIEvent = async (eventName: string, eventId: string) => {
+    try {
+      await fetch("/api/events", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          eventName,
+          eventId,
+        }),
+      });
+    } catch (err) {
+      console.error("CAPI error", err);
+    }
+  };
+
   useEffect(() => {
-    // Meta Pixel
+    const eventId = Date.now().toString();
+    
+    // Browser Pixel PageView
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     if (typeof window !== "undefined" && (window as any).fbq) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (window as any).fbq("track", "PageView");
+      (window as any).fbq("track", "PageView", {}, { eventID: eventId });
     }
-  }, []);
+
+    // Server API PageView
+    sendCAPIEvent("PageView", eventId);
+  }, [pathname]);
 
   return (
     <>

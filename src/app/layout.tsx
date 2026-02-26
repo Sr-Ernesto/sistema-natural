@@ -27,6 +27,14 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`${libreBaskerville.variable} ${quicksand.variable} font-sans antialiased bg-[#fffefa] text-[#121212]`}>
+        <noscript>
+          <iframe 
+            src="https://www.googletagmanager.com/ns.html?id=GTM-5H2C27F8"
+            height="0" 
+            width="0" 
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
         <TrackingProvider>
           {children}
         </TrackingProvider>

@@ -3,16 +3,14 @@
 import Image from "next/image";
 import { BreathButton } from "@/components/ui/BreathButton";
 import { useEffect, useState } from "react";
-import { useCurrency } from "@/hooks/useCurrency";
 import { motion, AnimatePresence } from "motion/react";
-
 import { DynamicDate } from "@/components/ui/DynamicDate";
+import { PriceSkeleton } from "@/components/ui/PriceSkeleton";
 
 export function OfferSection() {
   const [minutes, setMinutes] = useState(3);
   const [seconds, setSeconds] = useState(43);
   const [spots, setSpots] = useState(17);
-  const { price, oldPrice, loading } = useCurrency(11.11);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -63,21 +61,7 @@ export function OfferSection() {
             Accede al Sistema que ya Transformó la Piel, la Belleza y el Negocio Consciente de más de 8.555 mujeres
           </h2>
 
-          <div className="flex flex-col gap-1 mb-4">
-            <div className="flex items-center gap-3">
-              {!loading && (
-                <>
-                  <span className="text-[#d83a3a] line-through text-lg">{oldPrice}</span>
-                  <span className="font-bold text-2xl text-black">{price}</span>
-                </>
-              )}
-              {loading && <span className="animate-pulse bg-gray-200 h-8 w-32 rounded"></span>}
-            </div>
-            <div className="inline-block bg-black text-white text-[10px] uppercase font-bold px-2 py-1 rounded w-fit">
-              Oferta 70% OFF por tiempo limitado🎁
-            </div>
-            <p className="text-[10px] text-black/40 mt-1">Acceso inmediato post-compra</p>
-          </div>
+          <PriceSkeleton />
 
           {/* Urgency Box */}
           <div className="w-full bg-[#f6e5ff] border-2 border-[#d6bdf5] rounded-2xl p-5 mb-6 relative overflow-hidden shadow-lg group">

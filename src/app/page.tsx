@@ -17,9 +17,13 @@ import { StickyOffer } from "@/components/sections/StickyOffer";
 import { OfferSection } from "@/components/sections/OfferSection";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 
+import { ValueCascade } from "@/components/sections/ValueCascade";
+import { SocialProofToast } from "@/components/ui/SocialProofToast";
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#fffefa] overflow-x-hidden">
+      <SocialProofToast />
       <TopPill />
       
       <RevealOnScroll>
@@ -46,6 +50,8 @@ export default function Home() {
       <RevealOnScroll>
         <BenefitsChecks />
       </RevealOnScroll>
+
+      <ValueCascade />
 
       <RevealOnScroll>
         <OfferSection />

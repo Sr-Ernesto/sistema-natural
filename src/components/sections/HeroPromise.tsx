@@ -23,7 +23,7 @@ export function HeroPromise() {
         </p>
         <div className="mt-1.5 md:mt-2 max-w-[420px] md:max-w-[560px] mx-auto">
           <Image 
-            src="/alquimia-soberana-premium.png" 
+            src="https://sabidurianatural.com/cdn/shop/files/PortadasEbooks_1.jpg?v=1769313111&width=1445" 
             alt="ALQUIMIA SOBERANA - Promesa" 
             width={1080} 
             height={1080} 

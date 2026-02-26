@@ -4,10 +4,12 @@ import Image from "next/image";
 import { BreathButton } from "@/components/ui/BreathButton";
 import { useEffect, useState } from "react";
 import { useCurrency } from "@/hooks/useCurrency";
+import { motion, AnimatePresence } from "motion/react";
 
 export function OfferSection() {
   const [minutes, setMinutes] = useState(3);
   const [seconds, setSeconds] = useState(43);
+  const [spots, setSpots] = useState(17);
   const { price, oldPrice, loading } = useCurrency(11.11);
 
   useEffect(() => {
@@ -19,7 +21,17 @@ export function OfferSection() {
         setSeconds(59);
       }
     }, 1000);
-    return () => clearInterval(timer);
+
+    const handleNewSale = () => {
+      setSpots(prev => Math.max(3, prev - 1));
+    };
+
+    window.addEventListener('new_sale_detected', handleNewSale);
+
+    return () => {
+      clearInterval(timer);
+      window.removeEventListener('new_sale_detected', handleNewSale);
+    };
   }, [minutes, seconds]);
 
   return (
@@ -66,10 +78,44 @@ export function OfferSection() {
           </div>
 
           {/* Urgency Box */}
-          <div className="w-full bg-[#f6e5ff] border-2 border-[#d6bdf5] rounded-2xl p-5 mb-6 relative overflow-hidden shadow-lg">
+          <div className="w-full bg-[#f6e5ff] border-2 border-[#d6bdf5] rounded-2xl p-5 mb-6 relative overflow-hidden shadow-lg group">
             <div className="text-center">
               <p className="text-[#7b4dd6] font-bold text-[10px] tracking-widest uppercase mb-2">✨ OFERTA EXCLUSIVA ✨</p>
-              <h3 className="text-[#2f2f2f] font-extrabold text-xl leading-tight">SOLO POR HOY,</h3>
+              
+              {/* FOMO Spots Bar */}
+              <div className="mb-4">
+                 <div className="flex justify-between items-end mb-1.5">
+                    <span className="text-[10px] font-black text-[#2f2f2f] uppercase tracking-tighter">Cupos Disponibles</span>
+                    <AnimatePresence mode="wait">
+                      <motion.span 
+                        key={spots}
+                        initial={{ scale: 1.5, color: "#16a34a" }}
+                        animate={{ scale: 1, color: "#7b4dd6" }}
+                        className="text-lg font-black"
+                      >
+                        {spots}
+                      </motion.span>
+                    </AnimatePresence>
+                 </div>
+                 <div className="h-2.5 w-full bg-white/50 rounded-full overflow-hidden border border-[#d6bdf5]/50">
+                    <motion.div 
+                      initial={{ width: "100%" }}
+                      animate={{ width: `${(spots / 20) * 100}%` }}
+                      className="h-full bg-gradient-to-r from-[#7b4dd6] via-[#9d72f3] to-[#7b4dd6] relative overflow-hidden"
+                    >
+                       <motion.div 
+                         animate={{ x: ["-100%", "100%"] }}
+                         transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                         className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-12"
+                       />
+                    </motion.div>
+                 </div>
+                 <p className="text-[9px] text-[#7b4dd6] font-bold mt-1.5 italic animate-pulse">
+                    ¡Atención! {spots} personas están viendo esta oferta ahora mismo
+                 </p>
+              </div>
+
+              <h3 className="text-[#2f2f2f] font-extrabold text-xl leading-tight uppercase">Solo por hoy,</h3>
               <p className="text-[#2f2f2f] font-extrabold text-sm mb-4">PAGAS 1 Y TE LLEVAS TODO ESTO:</p>
               
               <ul className="text-left space-y-2 mb-6">
@@ -86,8 +132,6 @@ export function OfferSection() {
                   </li>
                 ))}
               </ul>
-
-              <div className="h-2 bg-[#7b4dd6]/20 rounded-full mb-4" />
               
               <p className="text-[#2f2f2f] font-extrabold text-[10px] uppercase mb-3">⏳ ASEGURA TU LUGAR Y ACCEDE ANTES DE QUE ESTA OFERTA EXPIRE:</p>
               

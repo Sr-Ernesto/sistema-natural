@@ -16,6 +16,8 @@ import { FAQSection } from "@/components/sections/FAQSection";
 import { StickyOffer } from "@/components/sections/StickyOffer";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 
+import { OfferSection } from "@/components/sections/OfferSection";
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#fffefa]">
@@ -44,6 +46,10 @@ export default function Home() {
 
       <RevealOnScroll>
         <BenefitsChecks />
+      </RevealOnScroll>
+
+      <RevealOnScroll>
+        <OfferSection />
       </RevealOnScroll>
 
       <RevealOnScroll>

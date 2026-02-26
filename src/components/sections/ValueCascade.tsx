@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
+import { BreathButton } from "@/components/ui/BreathButton";
+import { useCurrency } from "@/hooks/useCurrency";
 
 const ITEMS = [
   { emoji: "🔎", text: "Leer etiquetas y detectar el falso “natural”.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/Bonus_Tienda_Sabiduria_6_1_33f3dc2c-a5e4-44f3-a07d-515c92a73a27.webp?v=1769690793" },
@@ -23,6 +25,8 @@ const BONUSES = [
 ];
 
 export function ValueCascade() {
+  const { price, oldPrice, loading } = useCurrency(11.11);
+
   return (
     <section className="py-20 px-4 bg-gradient-to-b from-[#f6e5ff]/20 to-transparent overflow-hidden">
       <div className="max-w-4xl mx-auto">
@@ -88,13 +92,34 @@ export function ValueCascade() {
           </div>
           
           {/* Final Value Callout */}
-          <div className="mt-12 text-center bg-[#8b5e34] p-6 rounded-2xl shadow-inner border-t-4 border-[#5d3a1a]/20">
-             <p className="text-white font-black text-3xl md:text-5xl italic tracking-tighter">
-               VALOR TOTAL: <span className="text-[#8aad62] line-through">$349 USD</span>
-             </p>
-             <p className="text-[#e0f5c8] font-bold text-xl mt-2 animate-pulse">
-               TU PRECIO HOY: $11.11 USD
-             </p>
+          <div className="mt-12 text-center bg-[#8b5e34] p-6 md:p-8 rounded-2xl shadow-inner border-t-4 border-[#5d3a1a]/20 flex flex-col items-center">
+             {!loading && (
+               <>
+                 <p className="text-white font-black text-3xl md:text-5xl italic tracking-tighter">
+                   VALOR TOTAL: <span className="text-[#8aad62] line-through">{oldPrice}</span>
+                 </p>
+                 <p className="text-[#e0f5c8] font-bold text-xl md:text-2xl mt-2 mb-8 animate-pulse">
+                   TU PRECIO HOY: {price}
+                 </p>
+               </>
+             )}
+             
+             <BreathButton 
+               href="https://pay.hotmart.com/F104652497O?checkoutMode=10"
+               className="w-full max-w-sm"
+             >
+               ¡QUIERO ACCEDER AHORA!
+             </BreathButton>
+
+             <div className="flex items-center justify-center gap-3 mt-4 font-sans font-semibold text-[10px] md:text-xs text-white/70">
+                <span className="flex items-center gap-1.5 whitespace-nowrap">
+                  <span>🔒</span> Compra 100% segura
+                </span>
+                <span className="text-white/40">|</span>
+                <span className="flex items-center gap-1.5 whitespace-nowrap">
+                  <span>📧</span> Acceso vía mail
+                </span>
+             </div>
           </div>
         </div>
       </div>

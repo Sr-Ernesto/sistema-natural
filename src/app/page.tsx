@@ -58,21 +58,6 @@ export default function Home() {
         <ClosingRitual />
       </RevealOnScroll>
 
-      <section className="flex flex-col items-center py-10 px-4">
-        <BreathButton href="https://pay.hotmart.com/F104652497O?checkoutMode=10">
-          ¡QUIERO ACCEDER AHORA!
-        </BreathButton>
-        <div className="flex items-center justify-center gap-3 mt-4 font-sans font-semibold text-xs md:text-sm text-black/60">
-          <span className="flex items-center gap-1.5 whitespace-nowrap">
-            <span className="text-sm">🔒</span> Compra 100% segura
-          </span>
-          <span className="text-black/45">|</span>
-          <span className="flex items-center gap-1.5 whitespace-nowrap">
-            <span className="text-sm">📧</span> Acceso vía mail
-          </span>
-        </div>
-      </section>
-
       <ComunidadChat />
 
       <RevealOnScroll>

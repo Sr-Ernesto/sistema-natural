@@ -9,7 +9,9 @@ const PIXEL_ID = "1474151797665505";
 export function TrackingProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // Meta Pixel
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     if (typeof window !== "undefined" && (window as any).fbq) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (window as any).fbq("track", "PageView");
     }
   }, []);

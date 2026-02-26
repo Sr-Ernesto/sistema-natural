@@ -8,17 +8,14 @@ import { CreacionesCarousel } from "@/components/sections/CreacionesCarousel";
 import { ProductMarquee } from "@/components/sections/ProductMarquee";
 import { BenefitsChecks } from "@/components/sections/BenefitsChecks";
 import { ClosingRitual } from "@/components/sections/ClosingRitual";
-import { ThreePillars } from "@/components/sections/ThreePillars";
-import { RegalosSection } from "@/components/sections/RegalosSection";
 import { ComunidadChat } from "@/components/sections/ComunidadChat";
 import { StudentReviews } from "@/components/sections/StudentReviews";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { StickyOffer } from "@/components/sections/StickyOffer";
 import { OfferSection } from "@/components/sections/OfferSection";
-import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
-
 import { ValueCascade } from "@/components/sections/ValueCascade";
 import { SocialProofToast } from "@/components/ui/SocialProofToast";
+import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 
 export default function Home() {
   return (
@@ -51,11 +48,11 @@ export default function Home() {
         <BenefitsChecks />
       </RevealOnScroll>
 
-      <ValueCascade />
-
       <RevealOnScroll>
         <OfferSection />
       </RevealOnScroll>
+
+      <ValueCascade />
 
       <RevealOnScroll>
         <ClosingRitual />
@@ -75,14 +72,6 @@ export default function Home() {
           </span>
         </div>
       </section>
-
-      <RevealOnScroll>
-        <ThreePillars />
-      </RevealOnScroll>
-
-      <RevealOnScroll>
-        <RegalosSection />
-      </RevealOnScroll>
 
       <ComunidadChat />
 

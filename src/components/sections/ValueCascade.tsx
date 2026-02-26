@@ -26,15 +26,6 @@ export function ValueCascade() {
   return (
     <section className="py-20 px-4 bg-gradient-to-b from-[#f6e5ff]/20 to-transparent overflow-hidden">
       <div className="max-w-4xl mx-auto">
-        <header className="text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-5xl mb-4 text-[#303030]">
-            THE INFINITE VALUE CASCADE
-          </h2>
-          <p className="text-xl text-[#8aad62] font-bold uppercase tracking-widest">
-            Hormozi Stack Adaptativo
-          </p>
-        </header>
-
         {/* The "Wooden Box" Container */}
         <div className="relative bg-[#fdf8f0] border-[12px] border-[#8b5e34] rounded-3xl shadow-2xl p-6 md:p-12 before:absolute before:inset-0 before:border-[2px] before:border-[#5d3a1a]/20 before:rounded-[12px] before:m-[-8px]">
           {/* Box Header Decor */}

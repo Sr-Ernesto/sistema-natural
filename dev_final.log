@@ -45,3 +45,4 @@
  GET / 200 in 398ms
  POST /api/events 200 in 493ms
  ✓ Compiled in 54ms
+ ✓ Compiled in 46ms

@@ -107,7 +107,7 @@ export function ValueCascade() {
           </div>
           
           {/* Final Value Callout */}
-          <div className="mt-12 w-full text-center bg-white rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] p-4 sm:p-8 md:p-12 flex flex-col items-center relative overflow-hidden group border border-[#8b5e34]/5">
+          <div className="mt-12 w-full text-center bg-white rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] p-3 sm:p-8 md:p-12 flex flex-col items-center relative overflow-hidden group border border-[#8b5e34]/5">
              {/* Decorative element for value perceived */}
              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#8aad62] via-[#c5e1a5] to-[#8aad62]" />
              

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import { BreathButton } from "@/components/ui/BreathButton";
 import { useCurrency } from "@/hooks/useCurrency";
+import { DynamicDate } from "@/components/ui/DynamicDate";
 
 const ITEMS = [
   { emoji: "🔎", text: "Leer etiquetas y detectar el falso “natural”.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/Bonus_Tienda_Sabiduria_6_1_33f3dc2c-a5e4-44f3-a07d-515c92a73a27.webp?v=1769690793" },
@@ -24,10 +25,9 @@ const BONUSES = [
   { label: "REGALO 3", text: "Recibes gratis todas las <strong>actualizaciones</strong> que sumemos este año.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/hf_20260129_121719_8238142c-6b36-4571-8d9c-836ef03db15f_1.webp?v=1769698958" },
 ];
 
-import { DynamicDate } from "@/components/ui/DynamicDate";
-
 export function ValueCascade() {
   const { price, oldPrice, loading } = useCurrency(11.11);
+  const checkoutUrl = "https://pay.hotmart.com/F104652497O?checkoutMode=10";
 
   return (
     <section className="py-20 px-4 bg-gradient-to-b from-[#f6e5ff]/20 to-transparent overflow-hidden">
@@ -107,7 +107,8 @@ export function ValueCascade() {
              )}
              
              <BreathButton 
-               href="https://pay.hotmart.com/F104652497O?checkoutMode=10"
+               href={checkoutUrl}
+               src="wooden_box_offer"
                className="w-full max-w-sm"
              >
                ¡QUIERO ACCEDER AHORA!

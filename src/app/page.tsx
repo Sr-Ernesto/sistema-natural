@@ -19,8 +19,11 @@ import { DynamicDate } from "@/components/ui/DynamicDate";
 import { HeroGeoAlert } from "@/components/ui/HeroGeoAlert";
 import { CostOfInaction } from "@/components/sections/CostOfInaction";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
+import { Suspense } from "react";
 
-export default function Home() {
+function HomeContent() {
+  const checkoutUrl = "https://pay.hotmart.com/F104652497O?checkoutMode=10";
+
   return (
     <main className="min-h-screen bg-[#fffefa] overflow-x-hidden">
       <SocialProofToast />
@@ -33,7 +36,7 @@ export default function Home() {
       </RevealOnScroll>
 
       <section className="flex flex-col items-center py-6 px-4">
-        <BreathButton href="https://pay.hotmart.com/F104652497O?checkoutMode=10">
+        <BreathButton href={checkoutUrl} src="hero_top">
           SI, QUIERO DOMINAR EL SISTEMA
         </BreathButton>
         <DynamicDate />
@@ -64,6 +67,22 @@ export default function Home() {
         <ClosingRitual />
       </RevealOnScroll>
 
+      <section className="flex flex-col items-center py-10 px-4">
+        <BreathButton href={checkoutUrl} src="mid_reminder">
+          ¡QUIERO ACCEDER AHORA!
+        </BreathButton>
+        <DynamicDate />
+        <div className="flex items-center justify-center gap-3 mt-4 font-sans font-semibold text-xs md:text-sm text-black/60">
+          <span className="flex items-center gap-1.5 whitespace-nowrap">
+            <span className="text-sm">🔒</span> Compra 100% segura
+          </span>
+          <span className="text-black/45">|</span>
+          <span className="flex items-center gap-1.5 whitespace-nowrap">
+            <span className="text-sm">📧</span> Acceso vía mail
+          </span>
+        </div>
+      </section>
+
       <ComunidadChat />
 
       <RevealOnScroll>
@@ -76,7 +95,7 @@ export default function Home() {
       </RevealOnScroll>
 
       <section className="flex flex-col items-center py-10 px-4 bg-gradient-to-b from-transparent to-[#f6e5ff]/10">
-        <BreathButton href="https://pay.hotmart.com/F104652497O?checkoutMode=10">
+        <BreathButton href={checkoutUrl} src="bottom_final">
           SÍ, QUIERO VIVIR EN COHERENCIA
         </BreathButton>
         <DynamicDate />
@@ -96,5 +115,13 @@ export default function Home() {
 
       <StickyOffer />
     </main>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<div>Cargando...</div>}>
+      <HomeContent />
+    </Suspense>
   );
 }

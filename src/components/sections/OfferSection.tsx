@@ -11,6 +11,7 @@ export function OfferSection() {
   const [minutes, setMinutes] = useState(3);
   const [seconds, setSeconds] = useState(43);
   const [spots, setSpots] = useState(17);
+  const checkoutUrl = "https://pay.hotmart.com/F104652497O?checkoutMode=10";
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -135,7 +136,7 @@ export function OfferSection() {
             </div>
           </div>
 
-          <BreathButton href="https://pay.hotmart.com/F104652497O?checkoutMode=10">
+          <BreathButton href={checkoutUrl} src="main_offer_section">
             ¡Quiero Acceder Ahora!
           </BreathButton>
           <div className="w-full flex justify-center">

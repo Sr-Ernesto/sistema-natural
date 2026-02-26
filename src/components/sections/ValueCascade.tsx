@@ -24,6 +24,8 @@ const BONUSES = [
   { label: "REGALO 3", text: "Recibes gratis todas las <strong>actualizaciones</strong> que sumemos este año.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/hf_20260129_121719_8238142c-6b36-4571-8d9c-836ef03db15f_1.webp?v=1769698958" },
 ];
 
+import { DynamicDate } from "@/components/ui/DynamicDate";
+
 export function ValueCascade() {
   const { price, oldPrice, loading } = useCurrency(11.11);
 
@@ -110,6 +112,7 @@ export function ValueCascade() {
              >
                ¡QUIERO ACCEDER AHORA!
              </BreathButton>
+             <DynamicDate />
 
              <div className="flex items-center justify-center gap-3 mt-4 font-sans font-semibold text-[10px] md:text-xs text-white/70">
                 <span className="flex items-center gap-1.5 whitespace-nowrap">

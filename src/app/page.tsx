@@ -17,6 +17,8 @@ import { ValueCascade } from "@/components/sections/ValueCascade";
 import { SocialProofToast } from "@/components/ui/SocialProofToast";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 
+import { DynamicDate } from "@/components/ui/DynamicDate";
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#fffefa] overflow-x-hidden">
@@ -31,6 +33,7 @@ export default function Home() {
         <BreathButton href="https://pay.hotmart.com/F104652497O?checkoutMode=10">
           SI, QUIERO DOMINAR EL SISTEMA
         </BreathButton>
+        <DynamicDate />
         <div className="flex items-center justify-center gap-2 mt-4 font-sans font-semibold text-[clamp(13px,3.7vw,15px)] text-black/70">
           <span className="text-[#f7c948] tracking-widest">★★★★★</span>
           <span>Únete a +8.555 mujeres</span>
@@ -73,6 +76,7 @@ export default function Home() {
         <BreathButton href="https://pay.hotmart.com/F104652497O?checkoutMode=10">
           SÍ, QUIERO VIVIR EN COHERENCIA
         </BreathButton>
+        <DynamicDate />
       </section>
 
       <StudentReviews />

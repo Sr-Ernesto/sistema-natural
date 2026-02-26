@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import { useCurrency } from "@/hooks/useCurrency";
 import { motion, AnimatePresence } from "motion/react";
 
+import { DynamicDate } from "@/components/ui/DynamicDate";
+
 export function OfferSection() {
   const [minutes, setMinutes] = useState(3);
   const [seconds, setSeconds] = useState(43);
@@ -152,6 +154,9 @@ export function OfferSection() {
           <BreathButton href="https://pay.hotmart.com/F104652497O?checkoutMode=10">
             ¡Quiero Acceder Ahora!
           </BreathButton>
+          <div className="w-full flex justify-center">
+            <DynamicDate />
+          </div>
           
           <div className="w-full flex justify-center gap-4 mt-3 text-[10px] font-semibold text-black/50">
             <span>🔒 Compra 100% segura</span>

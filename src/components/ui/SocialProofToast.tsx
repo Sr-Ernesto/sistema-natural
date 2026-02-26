@@ -4,16 +4,16 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
 const SALES_DATA = [
-  { name: "Ana Pérez", city: "Medellín", time: "hace 2 min" },
-  { name: "Laura Martínez", city: "Bogotá", time: "hace 5 min" },
-  { name: "Sofía González", city: "CDMX", time: "hace 8 min" },
-  { name: "Elena Rodríguez", city: "Madrid", time: "hace 12 min" },
-  { name: "Valentina Sánchez", city: "Santiago", time: "hace 15 min" },
-  { name: "María José López", city: "Lima", time: "hace 18 min" },
-  { name: "Camila Vargas", city: "Buenos Aires", time: "hace 22 min" },
-  { name: "Isabella Herrera", city: "Cali", time: "hace 1 min" },
-  { name: "Ximena Duarte", city: "Querétaro", time: "hace 4 min" },
-  { name: "Beatriz Osorio", city: "Barranquilla", time: "hace 7 min" },
+  { name: "Lucía M.", city: "Bogotá", time: "hace 2 min" },
+  { name: "Mariana R.", city: "CDMX", time: "hace 5 min" },
+  { name: "Ximena P.", city: "Medellín", time: "hace 8 min" },
+  { name: "Beatriz L.", city: "Santiago", time: "hace 12 min" },
+  { name: "Carmen G.", city: "Lima", time: "hace 15 min" },
+  { name: "Diana V.", city: "Quito", time: "hace 18 min" },
+  { name: "Patricia F.", city: "Buenos Aires", time: "hace 22 min" },
+  { name: "Sonia H.", city: "Guadalajara", time: "hace 1 min" },
+  { name: "Raquel D.", city: "Cali", time: "hace 4 min" },
+  { name: "Mónica O.", city: "Panamá", time: "hace 7 min" },
 ];
 
 export function SocialProofToast() {
@@ -63,7 +63,7 @@ export function SocialProofToast() {
                 Desde {sale.city}
               </p>
               <p className="text-[10px] text-[#8aad62] font-black uppercase tracking-tighter mt-1">
-                Recién inscrita • {sale.time}
+                Recién inscrita • {sale.time} • ✅ Verificado
               </p>
             </div>
           </motion.div>

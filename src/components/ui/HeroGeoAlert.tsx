@@ -29,7 +29,7 @@ export function HeroGeoAlert() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
             </span>
             <p className="text-[10px] md:text-xs font-bold text-[#7b4dd6] uppercase tracking-wider">
-              🔥 <span className="animate-pulse">Tendencia:</span> 14 mujeres de {geo.city ? geo.city : geo.country} se unieron hoy
+              🔥 <span className="animate-pulse">Tendencia:</span> 14 mujeres de {geo.city || "tu ciudad"} se unieron hoy. (8,555 alumnas inscritas)
             </p>
           </motion.div>
         )}

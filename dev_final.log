@@ -1,0 +1,47 @@
+
+> sistema-natural-nextjs@0.1.0 dev
+> next dev --turbopack
+
+ ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /home/osbrai/.openclaw/workspace/package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * /home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/package-lock.json
+
+   ▲ Next.js 15.5.10 (Turbopack)
+   - Local:        http://localhost:3100
+   - Network:      http://192.168.1.71:3100
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 869ms
+ ○ Compiling / ...
+ ✓ Compiled / in 2.9s
+ HEAD / 200 in 3394ms
+ GET / 200 in 231ms
+ ✓ Compiled /api/events in 337ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 645ms
+ POST /api/events 200 in 926ms
+ GET / 200 in 161ms
+ POST /api/events 200 in 486ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 247ms
+ GET / 200 in 158ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 266ms
+ POST /api/events 200 in 494ms
+ ✓ Compiled in 55ms
+ GET / 200 in 421ms
+ POST /api/events 200 in 470ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 224ms
+ GET / 200 in 177ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 270ms
+ POST /api/events 200 in 450ms
+ GET / 200 in 151ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 248ms
+ POST /api/events 200 in 501ms
+ ✓ Compiled in 122ms
+ ✓ Compiled in 64ms
+ ✓ Compiled in 69ms
+ GET / 200 in 398ms
+ POST /api/events 200 in 493ms
+ ✓ Compiled in 54ms

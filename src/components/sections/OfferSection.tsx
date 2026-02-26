@@ -39,13 +39,13 @@ export function OfferSection() {
     <section className="py-10 px-4 bg-white">
       <div className="max-w-6xl mx-auto flex flex-col md:grid md:grid-cols-2 gap-8 items-center">
         {/* Left Side: Mockup Image */}
-        <div className="w-full max-w-[500px] mx-auto">
+        <div className="w-full max-w-[500px] mx-auto group">
           <Image 
-            src="https://sabidurianatural.com/cdn/shop/files/PortadasEbooks_1.jpg?v=1769313111&width=1445"
+            src="/images/ebooks_hero.webp"
             alt="Alquimia Soberana Mockup"
-            width={1000}
-            height={1000}
-            className="w-full h-auto drop-shadow-2xl"
+            width={800}
+            height={800}
+            className="w-full h-auto drop-shadow-2xl group-hover:rotate-1 transition-transform"
           />
         </div>
 
@@ -103,7 +103,7 @@ export function OfferSection() {
               </div>
 
               <h3 className="text-[#2f2f2f] font-extrabold text-xl leading-tight uppercase">Solo por hoy,</h3>
-              <p className="text-[#2f2f2f] font-extrabold text-sm mb-4">PAGAS 1 Y TE LLEVAS TODO ESTO:</p>
+              <p className="text-[#2f2f2f] font-extrabold text-sm mb-4 italic text-[#d83a3a]">Quedan pocos cupos con el 70% de descuento</p>
               
               <ul className="text-left space-y-2 mb-6">
                 {[
@@ -124,21 +124,23 @@ export function OfferSection() {
               
               <div className="flex items-center justify-center gap-2 font-black text-[#7b4dd6]">
                 <div className="flex flex-col">
-                  <span className="text-4xl leading-none">{minutes.toString().padStart(2, '0')}</span>
-                  <span className="text-[8px] uppercase">Min</span>
+                  <span className="text-4xl leading-none">01</span>
+                  <span className="text-[8px] uppercase">Hora</span>
                 </div>
                 <span className="text-2xl -mt-4">:</span>
                 <div className="flex flex-col">
-                  <span className="text-4xl leading-none">{seconds.toString().padStart(2, '0')}</span>
-                  <span className="text-[8px] uppercase">Seg</span>
+                  <span className="text-4xl leading-none">{minutes.toString().padStart(2, '0')}</span>
+                  <span className="text-[8px] uppercase">Min</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <BreathButton href={checkoutUrl} src="main_offer_section">
-            ¡Quiero Acceder Ahora!
-          </BreathButton>
+          <div className="w-full flex justify-center mt-4">
+            <BreathButton href={checkoutUrl} src="main_offer_section" className="w-full max-w-md">
+              SÍ, QUIERO MI TRANSFORMACIÓN
+            </BreathButton>
+          </div>
           <div className="w-full flex justify-center">
             <DynamicDate />
           </div>

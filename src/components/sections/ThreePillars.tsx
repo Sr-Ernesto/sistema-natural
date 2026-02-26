@@ -5,7 +5,7 @@ import Image from "next/image";
 export function ThreePillars() {
   const steps = [
     {
-      img: "https://sabidurianatural.com/cdn/shop/files/PortadasEbooks_1.jpg?v=1769313111&width=1445",
+      img: "/images/ebooks_hero.webp",
       fase: "Fase 1:",
       name: "El Radar y la Base Sagrada",
       sub: "De consumidora engañada a experta técnica."

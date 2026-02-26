@@ -16,19 +16,19 @@ export function HeroPromise() {
         <p className="font-sans text-[17px] md:text-[20px] leading-[1.42] text-[#303030] mt-4 md:mt-[18px] max-w-[560px] md:max-w-[760px] mx-auto px-3 md:px-0 text-balance">
           <strong>Pasa del caos de las recetas</strong><br />
           <strong>sueltas al sistema paso a paso</strong><br />
-          <strong>validado por + 8.555 mujeres.</strong>
+          <strong>probado por + 8.555 mujeres.</strong>
           <span className="block mt-2.5">
-            El mapa lógico para transformar tu rutina en un <strong>ritual de soberanía</strong> y lograr <strong>resultados reales</strong>.
+            El mapa lógico para recuperar el <strong>control total</strong> de tu belleza y lograr <strong>resultados reales</strong> desde casa.
           </span>
         </p>
-        <div className="mt-1.5 md:mt-2 max-w-[420px] md:max-w-[560px] mx-auto">
+        <div className="mt-1.5 md:mt-2 max-w-[420px] md:max-w-[560px] mx-auto group">
           <Image 
-            src="https://sabidurianatural.com/cdn/shop/files/PortadasEbooks_1.jpg?v=1769313111&width=1445" 
+            src="/images/ebooks_hero.webp" 
             alt="ALQUIMIA SOBERANA - Promesa" 
-            width={1080} 
-            height={1080} 
+            width={800} 
+            height={800} 
             priority
-            className="w-full h-auto aspect-square block mx-auto"
+            className="w-full h-auto aspect-square block mx-auto rounded-3xl shadow-2xl group-hover:scale-[1.02] transition-transform duration-500"
           />
         </div>
       </div>

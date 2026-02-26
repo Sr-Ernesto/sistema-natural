@@ -7,28 +7,28 @@ export function StudentReviews() {
       avatar: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/resenas_foto_perfil_1.png?v=1766414364",
       name: "Belén R.",
       country: "Colombia",
-      quote: "“Gasté una fortuna en dermatólogos y nada calmaba mi rosácea. Con este sistema aprendí qué ingredientes me lastimaban y a los 4 días el rojo desapareció. Mi piel por fin respira.💛”"
+      quote: "“Gasté una fortuna en dermatólogos y nada... Con este sistema entendí qué me hacía daño y en 4 días el rojo se fue. Mi piel respira! 💛”"
     },
     {
       photo: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/resenas_imagenes_2.png?v=1766414383",
       avatar: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/resenas_foto_perfil_2.png?v=1766414365",
       name: "Lucía F.",
       country: "Argentina",
-      quote: "“Me sentía hipócrita comiendo orgánico mientras me ponía tóxicos en la cara. Estas guías me devolvieron autonomía, ahora mi ritual es coherente con mi vida. Paz mental pura.💫”"
+      quote: "“Me sentía mal usando tóxicos mientras comía sano. Estas guías me dieron el control, ahora todo es coherente. Paz mental total.💫”"
     },
     {
       photo: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/resenas_imagenes_3.png?v=1766414383",
       avatar: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/resenas_foto_perfil_3.png?v=1766414366",
       name: "Teresa G.",
       country: "México",
-      quote: "“No soy química y me daba pánico arruinar los ingredientes. Pero el paso a paso es tan claro que logré texturas profesionales en mi cocina. Mis amigas no me lo creen que lo hice yo sola.”"
+      quote: "“No sé nada de química y me daba miedo arruinar todo. Pero es tan claro que logré texturas de boutique en mi cocina. Mis amigas no me creen que lo hice yo sola! 😍”"
     },
     {
       photo: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/resenas_imagenes_4.png?v=1766414382",
       avatar: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/resenas_foto_perfil_4.png?v=1766414366",
       name: "Alejandra S.",
-      country: "Estados Unidos",
-      quote: "“Lo que realmente me ayudó a avanzar fue la comunidad, y siempre que tenía una duda con una fórmula, el equipo me respondía en minutos🙌 Esa compañía marca la diferencia.”"
+      country: "USA",
+      quote: "“La comunidad me salvó! Cada vez que me trababa con una fórmula, me respondían al toque🙌 Ese apoyo vale más que el libro.”"
     }
   ];
 

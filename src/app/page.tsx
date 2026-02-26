@@ -37,7 +37,7 @@ function HomeContent() {
 
       <section className="flex flex-col items-center py-6 px-4">
         <BreathButton href={checkoutUrl} src="hero_top">
-          SI, QUIERO DOMINAR EL SISTEMA
+          SI, QUIERO MI TRANSFORMACIÓN
         </BreathButton>
         <DynamicDate />
         <div className="flex items-center justify-center gap-2 mt-4 font-sans font-semibold text-[clamp(13px,3.7vw,15px)] text-black/70">
@@ -96,7 +96,7 @@ function HomeContent() {
 
       <section className="flex flex-col items-center py-10 px-4 bg-gradient-to-b from-transparent to-[#f6e5ff]/10">
         <BreathButton href={checkoutUrl} src="bottom_final">
-          SÍ, QUIERO VIVIR EN COHERENCIA
+          SÍ, QUIERO MI PIEL SANA POR $11.11
         </BreathButton>
         <DynamicDate />
       </section>
@@ -109,7 +109,7 @@ function HomeContent() {
         <FAQSection />
       </RevealOnScroll>
 
-      <footer className="py-8 border-t border-black/5 text-center bg-white">
+      <footer className="py-8 border-t border-black/5 text-center bg-white mb-20 md:mb-0">
         <p className="text-xs text-black/40 font-medium tracking-wider uppercase">© 2026, Sabiduría Natural • Todos los derechos reservados</p>
       </footer>
 

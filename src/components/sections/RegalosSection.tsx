@@ -40,6 +40,7 @@ export function RegalosSection() {
                   alt={gift.label} 
                   width={900} 
                   height={900} 
+                  loading="lazy"
                   className="w-[86%] md:w-[92%] h-auto block mx-auto aspect-square object-cover rounded-xl"
                 />
               </div>

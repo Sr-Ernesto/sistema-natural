@@ -3,10 +3,12 @@
 import Image from "next/image";
 import { BreathButton } from "@/components/ui/BreathButton";
 import { useEffect, useState } from "react";
+import { useCurrency } from "@/hooks/useCurrency";
 
 export function OfferSection() {
   const [minutes, setMinutes] = useState(3);
   const [seconds, setSeconds] = useState(43);
+  const { price, oldPrice, loading } = useCurrency(11.11);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -49,8 +51,13 @@ export function OfferSection() {
 
           <div className="flex flex-col gap-1 mb-4">
             <div className="flex items-center gap-3">
-              <span className="text-[#d83a3a] line-through text-lg">$177.000,00 COP</span>
-              <span className="font-bold text-2xl text-black">$53.000,00 COP</span>
+              {!loading && (
+                <>
+                  <span className="text-[#d83a3a] line-through text-lg">{oldPrice}</span>
+                  <span className="font-bold text-2xl text-black">{price}</span>
+                </>
+              )}
+              {loading && <span className="animate-pulse bg-gray-200 h-8 w-32 rounded"></span>}
             </div>
             <div className="inline-block bg-black text-white text-[10px] uppercase font-bold px-2 py-1 rounded w-fit">
               Oferta 70% OFF por tiempo limitado🎁

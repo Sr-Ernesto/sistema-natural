@@ -1,6 +1,26 @@
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
+import { useState } from "react";
 
 export function VideoSalesLetter() {
+  const [hasPlayed, setHasPlayed] = useState(false);
+
+  const trackVideoPlay = () => {
+    if (!hasPlayed) {
+      setHasPlayed(true);
+      // Track GA4
+      if (typeof window !== "undefined" && (window as any).dataLayer) {
+        (window as any).dataLayer.push({
+          event: 'vsl_video_play',
+          vsl_version: 'elena_demo_labial'
+        });
+      }
+      // Track PostHog
+      if (typeof window !== "undefined" && (window as any).posthog) {
+        (window as any).posthog.capture('vsl_played');
+      }
+    }
+  };
+
   return (
     <section className="py-12 md:py-20 px-4 bg-white">
       <div className="max-w-4xl mx-auto text-center">
@@ -19,6 +39,12 @@ export function VideoSalesLetter() {
           <div className="absolute -inset-6 bg-[#8aad62]/10 blur-3xl rounded-full opacity-40 group-hover:opacity-70 transition-opacity duration-700" />
           
           <div className="relative aspect-[9/16] rounded-[2.5rem] overflow-hidden shadow-[0_25px_50px_-12px_rgba(0,0,0,0.4)] border-[6px] border-white z-10 group-hover:scale-[1.02] transition-transform duration-500">
+            {!hasPlayed && (
+              <div 
+                onClick={trackVideoPlay}
+                className="absolute inset-0 z-20 cursor-pointer bg-transparent"
+              />
+            )}
             <iframe 
               src="https://iframe.mediadelivery.net/embed/550916/ad84b508-297f-4940-bfa5-b408857a2b98?autoplay=false&loop=false&muted=false&preload=true&responsive=true" 
               loading="lazy" 

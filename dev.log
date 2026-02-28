@@ -32,3 +32,14 @@ Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allow
  POST /api/events 200 in 642ms
  GET /favicon.ico?favicon.0b3bf435.ico 200 in 227ms
  ✓ Compiled in 74ms
+ ✓ Compiled / in 20ms
+ GET / 200 in 165ms
+ GET / 200 in 70ms
+ ✓ Compiled / in 113ms
+ GET / 200 in 249ms
+ GET / 200 in 247ms
+ POST /api/events 200 in 652ms
+ POST /api/events 200 in 714ms
+ POST /api/events 200 in 592ms
+ POST /api/events 200 in 589ms
+[?25h

@@ -20,6 +20,7 @@ import { DynamicDate } from "@/components/ui/DynamicDate";
 import { HeroGeoAlert } from "@/components/ui/HeroGeoAlert";
 import { CostOfInaction } from "@/components/sections/CostOfInaction";
 import { TheDiscovery } from "@/components/sections/TheDiscovery";
+import { VideoSalesLetter } from "@/components/sections/VideoSalesLetter";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { Suspense } from "react";
 
@@ -40,6 +41,8 @@ function HomeContent() {
       </RevealOnScroll>
 
       <TheDiscovery />
+
+      <VideoSalesLetter />
 
       <CreacionesCarousel />
       <ProductMarquee />

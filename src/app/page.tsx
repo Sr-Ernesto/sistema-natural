@@ -38,13 +38,13 @@ function HomeContent() {
         <HeroPromise />
       </RevealOnScroll>
 
+      <VideoSalesLetter />
+
       <RevealOnScroll>
         <PainPoints />
       </RevealOnScroll>
 
       <TheDiscovery />
-
-      <VideoSalesLetter />
 
       <RevealOnScroll>
         <BenefitsChecks />

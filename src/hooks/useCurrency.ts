@@ -26,26 +26,6 @@ export function useCurrency(baseUsd: number = 9) {
   const [loading, setLoading] = useState(true);
   const [userLocale, setUserLocale] = useState("es-CO");
 
-  // Helper to set cookie
-  const setCookie = (name: string, value: string, days: number) => {
-    const date = new Date();
-    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-    const expires = "; expires=" + date.toUTCString();
-    document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Lax";
-  };
-
-  // Helper to get cookie
-  const getCookie = (name: string) => {
-    const nameEQ = name + "=";
-    const ca = document.cookie.split(';');
-    for(let i=0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-    }
-    return null;
-  };
-
   useEffect(() => {
     if (typeof window !== "undefined") {
       setUserLocale(window.navigator.language || "es-CO");
@@ -53,42 +33,42 @@ export function useCurrency(baseUsd: number = 9) {
 
     async function detectCurrency() {
       try {
-        // 1. Intentar leer de la Cookie (Persistencia)
-        const cachedCode = getCookie("user_currency_code");
-        const cachedRate = getCookie("user_currency_rate");
+        // 1. Intentar leer de LocalStorage (Más confiable en Mobile que Cookies sobre IP)
+        const cachedCode = localStorage.getItem("user_currency_code");
+        const cachedRate = localStorage.getItem("user_currency_rate");
 
-        if (cachedCode && cachedRate && CURRENCY_MAP[cachedCode] || Object.values(CURRENCY_MAP).find(c => c.code === cachedCode)) {
+        if (cachedCode && cachedRate) {
           const found = Object.values(CURRENCY_MAP).find(c => c.code === cachedCode) || DEFAULT_USD;
           setCurrency({ ...found, rate: parseFloat(cachedRate) });
           setLoading(false);
-          return; // Ya tenemos data persistente
+          return;
         }
 
-        // 2. Si no hay cookie, detectar por IP
-        const res = await fetch("https://ipwho.is/");
-        const data = await res.json();
-        
+        // 2. Si no hay cache, detectar por IP (Probamos 3 fuentes para Mobile)
         let detected = DEFAULT_USD;
-
-        if (data.success && CURRENCY_MAP[data.country_code]) {
-          detected = CURRENCY_MAP[data.country_code];
-        } else {
-           // Fallback a ipapi si ipwho falla
-           const res2 = await fetch("https://ipapi.co/json/");
-           const data2 = await res2.json();
-           if (data2.country_code && CURRENCY_MAP[data2.country_code]) {
-             detected = CURRENCY_MAP[data2.country_code];
-           }
+        
+        try {
+          const res = await fetch("https://ipwho.is/");
+          const data = await res.json();
+          if (data.success && CURRENCY_MAP[data.country_code]) {
+            detected = CURRENCY_MAP[data.country_code];
+          }
+        } catch (e) {
+          const res2 = await fetch("https://ipapi.co/json/");
+          const data2 = await res2.json();
+          if (data2.country_code && CURRENCY_MAP[data2.country_code]) {
+            detected = CURRENCY_MAP[data2.country_code];
+          }
         }
 
         setCurrency(detected);
         
-        // 3. GUARDAR EN COOKIE para la próxima recarga (30 días)
-        setCookie("user_currency_code", detected.code, 30);
-        setCookie("user_currency_rate", detected.rate.toString(), 30);
+        // 3. GUARDAR EN LOCALSTORAGE para Mobile
+        localStorage.setItem("user_currency_code", detected.code);
+        localStorage.setItem("user_currency_rate", detected.rate.toString());
 
       } catch (err) {
-        console.warn("Currency auto-detection failed, using default USD", err);
+        console.warn("Currency auto-detection failed", err);
       } finally {
         setLoading(false);
       }

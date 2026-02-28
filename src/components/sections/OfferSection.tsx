@@ -8,19 +8,34 @@ import { DynamicDate } from "@/components/ui/DynamicDate";
 import { PriceSkeleton } from "@/components/ui/PriceSkeleton";
 
 export function OfferSection() {
-  const [minutes, setMinutes] = useState(3);
-  const [seconds, setSeconds] = useState(43);
+  const [timeLeft, setTimeLeft] = useState({ h: 0, m: 0, s: 0 });
   const [spots, setSpots] = useState(17);
   const checkoutUrl = "https://pay.hotmart.com/F104652497O?checkoutMode=10";
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      if (seconds > 0) {
-        setSeconds(seconds - 1);
-      } else if (minutes > 0) {
-        setMinutes(minutes - 1);
-        setSeconds(59);
+    const calculateTimeLeft = () => {
+      const now = new Date();
+      const midnight = new Date();
+      midnight.setHours(23, 59, 59, 999);
+      
+      const diff = midnight.getTime() - now.getTime();
+      
+      if (diff <= 0) {
+        return { h: 0, m: 0, s: 0 };
       }
+
+      const h = Math.floor(diff / (1000 * 60 * 60));
+      const m = Math.floor((diff / (1000 * 60)) % 60);
+      const s = Math.floor((diff / 1000) % 60);
+      
+      return { h, m, s };
+    };
+
+    // Initial set
+    setTimeLeft(calculateTimeLeft());
+
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
     }, 1000);
 
     const handleNewSale = () => {
@@ -33,7 +48,7 @@ export function OfferSection() {
       clearInterval(timer);
       window.removeEventListener('new_sale_detected', handleNewSale);
     };
-  }, [minutes, seconds]);
+  }, []);
 
   return (
     <section id="offer-trigger" className="py-16 px-4 bg-white">
@@ -123,41 +138,63 @@ export function OfferSection() {
               
               <p className="text-[#2f2f2f] font-extrabold text-[10px] uppercase mb-3">⏳ Para ayudarte a dar el paso hoy, si te unes antes de que el tiempo termine, te incluyo todos los extras gratis:</p>
               
-              <div className="flex items-center justify-center gap-3">
+              <div className="flex items-center justify-center gap-2 md:gap-3">
+                {/* Hours */}
                 <div className="flex flex-col items-center">
-                  <div className="bg-white/40 backdrop-blur-sm border border-white/20 rounded-xl p-2 min-w-[60px] shadow-sm relative overflow-hidden">
+                  <div className="bg-white/40 backdrop-blur-sm border border-white/20 rounded-xl p-2 min-w-[50px] md:min-w-[60px] shadow-sm relative overflow-hidden">
                     <AnimatePresence mode="wait">
                       <motion.span
-                        key={minutes}
+                        key={timeLeft.h}
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: -20, opacity: 0 }}
-                        className="text-4xl font-black text-[#7b4dd6] block"
+                        className="text-2xl md:text-4xl font-black text-[#7b4dd6] block"
                       >
-                        {minutes.toString().padStart(2, '0')}
+                        {timeLeft.h.toString().padStart(2, '0')}
                       </motion.span>
                     </AnimatePresence>
                   </div>
-                  <span className="text-[9px] font-bold text-[#7b4dd6]/60 uppercase mt-1.5 tracking-tighter">Minutos</span>
+                  <span className="text-[8px] md:text-[9px] font-bold text-[#7b4dd6]/60 uppercase mt-1.5 tracking-tighter">Horas</span>
                 </div>
 
-                <span className="text-3xl font-black text-[#7b4dd6] mb-5 animate-pulse">:</span>
+                <span className="text-xl md:text-3xl font-black text-[#7b4dd6] mb-5 animate-pulse">:</span>
 
+                {/* Minutes */}
                 <div className="flex flex-col items-center">
-                  <div className="bg-white/40 backdrop-blur-sm border border-white/20 rounded-xl p-2 min-w-[60px] shadow-sm relative overflow-hidden">
+                  <div className="bg-white/40 backdrop-blur-sm border border-white/20 rounded-xl p-2 min-w-[50px] md:min-w-[60px] shadow-sm relative overflow-hidden">
                     <AnimatePresence mode="wait">
                       <motion.span
-                        key={seconds}
+                        key={timeLeft.m}
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: -20, opacity: 0 }}
-                        className="text-4xl font-black text-[#7b4dd6] block"
+                        className="text-2xl md:text-4xl font-black text-[#7b4dd6] block"
                       >
-                        {seconds.toString().padStart(2, '0')}
+                        {timeLeft.m.toString().padStart(2, '0')}
                       </motion.span>
                     </AnimatePresence>
                   </div>
-                  <span className="text-[9px] font-bold text-[#7b4dd6]/60 uppercase mt-1.5 tracking-tighter">Segundos</span>
+                  <span className="text-[8px] md:text-[9px] font-bold text-[#7b4dd6]/60 uppercase mt-1.5 tracking-tighter">Minutos</span>
+                </div>
+
+                <span className="text-xl md:text-3xl font-black text-[#7b4dd6] mb-5 animate-pulse">:</span>
+
+                {/* Seconds */}
+                <div className="flex flex-col items-center">
+                  <div className="bg-white/40 backdrop-blur-sm border border-white/20 rounded-xl p-2 min-w-[50px] md:min-w-[60px] shadow-sm relative overflow-hidden">
+                    <AnimatePresence mode="wait">
+                      <motion.span
+                        key={timeLeft.s}
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: -20, opacity: 0 }}
+                        className="text-2xl md:text-4xl font-black text-[#7b4dd6] block"
+                      >
+                        {timeLeft.s.toString().padStart(2, '0')}
+                      </motion.span>
+                    </AnimatePresence>
+                  </div>
+                  <span className="text-[8px] md:text-[9px] font-bold text-[#7b4dd6]/60 uppercase mt-1.5 tracking-tighter">Segundos</span>
                 </div>
               </div>
             </div>

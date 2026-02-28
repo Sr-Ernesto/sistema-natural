@@ -1,6 +1,10 @@
-import Image from "next/image";
+"use client";
+
+import { useCurrency } from "@/hooks/useCurrency";
 
 export function HeroPromise() {
+  const { format } = useCurrency();
+
   return (
     <section className="py-10 px-3 md:px-6">
       <div className="max-w-[980px] mx-auto text-center">
@@ -30,11 +34,11 @@ export function HeroPromise() {
           <div className="space-y-3">
             <div className="flex justify-between items-center border-b border-[#8aad62]/20 pb-2">
               <span className="font-sans text-sm text-[#4a4a4a]">Tu crema de marca:</span>
-              <span className="font-sans font-bold text-[#d83a3a]">$35.00 USD</span>
+              <span className="font-sans font-bold text-[#d83a3a]">{format(35)}</span>
             </div>
             <div className="flex justify-between items-center border-b border-[#8aad62]/20 pb-2">
               <span className="font-sans text-sm text-[#4a4a4a]">Tu propia crema:</span>
-              <span className="font-sans font-bold text-[#8aad62]">$0.80 USD</span>
+              <span className="font-sans font-bold text-[#8aad62]">{format(0.8)}</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="font-sans text-sm font-bold text-[#303030]">Tu orgullo y libertad:</span>

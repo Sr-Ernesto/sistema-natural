@@ -1,8 +1,11 @@
 "use client";
 
 import { motion } from "motion/react";
+import { useCurrency } from "@/hooks/useCurrency";
 
 export function CostOfInaction() {
+  const { format } = useCurrency();
+
   return (
     <section className="py-20 px-6 bg-[#1a1a1a] text-[#fdf8f0] overflow-hidden">
       <div className="max-w-3xl mx-auto">
@@ -42,7 +45,7 @@ export function CostOfInaction() {
             className="bg-[#262626] p-8 rounded-3xl border border-white/5"
           >
             <p className="italic mb-6">
-              "El costo real de no actuar no son los $11 USD... es el riesgo de mirar atrás en un año y darte cuenta de que pudiste haber sanado tu piel y tu soberanía, pero elegiste seguir siendo rehén por miedo a intentar algo diferente."
+              "El costo real de no actuar no es lo que cuesta esta guía ({format(9)})... es el riesgo de mirar atrás en un año y darte cuenta de que pudiste haber sanado tu piel y tu soberanía, pero elegiste seguir siendo rehén por miedo a intentar algo diferente."
             </p>
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-[#8aad62]/20 flex items-center justify-center text-xl">🌿</div>

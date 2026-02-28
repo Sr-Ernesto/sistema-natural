@@ -8,25 +8,25 @@ import { DynamicDate } from "@/components/ui/DynamicDate";
 import { ShieldCheck, RefreshCcw, Award } from "lucide-react";
 
 const ITEMS = [
-  { emoji: "🔎", text: "<strong>El Detector de Mentiras</strong>: Lee etiquetas como experta y deja de pagar por químicos disfrazados.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/Bonus_Tienda_Sabiduria_6_1_33f3dc2c-a5e4-44f3-a07d-515c92a73a27.webp?v=1769690793", price: "$15", vip: false },
-  { emoji: "📦", text: "<strong>El Mapa del Tesoro</strong>: Mi lista privada de proveedores secretos para comprar a precio de fábrica.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/bonus_5.png?v=1766253624", price: "$12", vip: true },
-  { emoji: "🌿", text: "<strong>Protocolo Piel de Seda</strong>: Pasos exactos para desintoxicar tu rostro en solo 48 horas.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/bonus_1.png?v=1766253624", price: "$10", vip: true },
-  { emoji: "💄", text: "<strong>Seducción Natural</strong>: Labiales y bálsamos irresistibles que cuidan tu salud y resaltan tu belleza.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/bonus_7.png?v=1766256355", price: "$14", vip: false },
-  { emoji: "🧼", text: "<strong>Jabones de Autor</strong>: Crea piezas de lujo que parecen de boutique parisina en tu propia cocina.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/bonus_4.png?v=1766253624", price: "$12", vip: false },
-  { emoji: "🫧", text: "<strong>El Escudo Invisible</strong>: Guía para pieles sensibles. Identifica el 'veneno' y aprende a reemplazarlo.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/Bonus_Tienda_Sabiduria_4.png?v=1766687541", price: "$10", vip: false },
-  { emoji: "🔆", text: "<strong>Tu Glow de 5 Minutos</strong>: El ritual diario para una piel radiante sin una gota de maquillaje comercial.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/Bonus_Tienda_Sabiduria_5.png?v=1766687541", price: "$9", vip: false },
-  { emoji: "✨", text: "<strong>Fórmulas de Élite</strong>: Cremas personalizadas que humectan 10 veces más que las de farmacia.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/bonus_2.png?v=1766253624", price: "$12", vip: true },
-  { emoji: "🪻", text: "<strong>Gotas de Calma</strong>: El secreto de las brumas y tónicos para borrar el cansancio de tu cara.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/Bonus_Tienda_Sabiduria_3.png?v=1766768800", price: "$8", vip: false },
-  { emoji: "💧", text: "<strong>El Código de los Aceites</strong>: Domina el uso profesional de aceites esenciales sin riesgos.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/bonus_3.png?v=1766253624", price: "$10", vip: false },
+  { emoji: "🔎", text: "<strong>El Detector de Mentiras</strong>: Lee etiquetas como experta y deja de pagar por químicos disfrazados.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/Bonus_Tienda_Sabiduria_6_1_33f3dc2c-a5e4-44f3-a07d-515c92a73a27.webp?v=1769690793", baseUsd: 15, vip: false },
+  { emoji: "📦", text: "<strong>El Mapa del Tesoro</strong>: Mi lista privada de proveedores secretos para comprar a precio de fábrica.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/bonus_5.png?v=1766253624", baseUsd: 12, vip: true },
+  { emoji: "🌿", text: "<strong>Protocolo Piel de Seda</strong>: Pasos exactos para desintoxicar tu rostro en solo 48 horas.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/bonus_1.png?v=1766253624", baseUsd: 10, vip: true },
+  { emoji: "💄", text: "<strong>Seducción Natural</strong>: Labiales y bálsamos irresistibles que cuidan tu salud y resaltan tu belleza.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/bonus_7.png?v=1766256355", baseUsd: 14, vip: false },
+  { emoji: "🧼", text: "<strong>Jabones de Autor</strong>: Crea piezas de lujo que parecen de boutique parisina en tu propia cocina.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/bonus_4.png?v=1766253624", baseUsd: 12, vip: false },
+  { emoji: "🫧", text: "<strong>El Escudo Invisible</strong>: Guía para pieles sensibles. Identifica el 'veneno' y aprende a reemplazarlo.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/Bonus_Tienda_Sabiduria_4.png?v=1766687541", baseUsd: 10, vip: false },
+  { emoji: "🔆", text: "<strong>Tu Glow de 5 Minutos</strong>: El ritual diario para una piel radiante sin una gota de maquillaje comercial.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/Bonus_Tienda_Sabiduria_5.png?v=1766687541", baseUsd: 9, vip: false },
+  { emoji: "✨", text: "<strong>Fórmulas de Élite</strong>: Cremas personalizadas que humectan 10 veces más que las de farmacia.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/bonus_2.png?v=1766253624", baseUsd: 12, vip: true },
+  { emoji: "🪻", text: "<strong>Gotas de Calma</strong>: El secreto de las brumas y tónicos para borrar el cansancio de tu cara.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/Bonus_Tienda_Sabiduria_3.png?v=1766768800", baseUsd: 8, vip: false },
+  { emoji: "💧", text: "<strong>El Código de los Aceites</strong>: Domina el uso profesional de aceites esenciales sin riesgos.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/bonus_3.png?v=1766253624", baseUsd: 10, vip: false },
 ];
 
 const BONUSES = [
-  { label: "EXTRA 1", text: "<strong>Ahorro Maestro</strong>: El truco para reducir tus gastos de belleza en un 80% hoy mismo.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/hf_20260129_144618_5f5e6eb5-5a31-4ff4-acdd-fa4fe2b52d41_1.webp?v=1769699665", price: "$19" },
-  { label: "EXTRA 2", text: "<strong>Tu Marca Soberana</strong>: Cómo convertir tu pasión en libertad financiera desde tu casa.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/hf_20260129_121719_8238142c-6b36-4571-8d9c-836ef03db15f_1.webp?v=1769698958", price: "$15" },
+  { label: "EXTRA 1", text: "<strong>Ahorro Maestro</strong>: El truco para reducir tus gastos de belleza en un 80% hoy mismo.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/hf_20260129_144618_5f5e6eb5-5a31-4ff4-acdd-fa4fe2b52d41_1.webp?v=1769699665", baseUsd: 19 },
+  { label: "EXTRA 2", text: "<strong>Tu Marca Soberana</strong>: Cómo convertir tu pasión en libertad financiera desde tu casa.", img: "https://cdn.shopify.com/s/files/1/0669/0042/6913/files/hf_20260129_121719_8238142c-6b36-4571-8d9c-836ef03db15f_1.webp?v=1769698958", baseUsd: 15 },
 ];
 
 export function ValueCascade() {
-  const { price, oldPrice, loading } = useCurrency(9.00);
+  const { price, oldPrice, format, loading } = useCurrency(9.00);
   const checkoutUrl = "https://pay.hotmart.com/F104652497O?checkoutMode=10&src=value_cascade";
 
   return (
@@ -71,7 +71,7 @@ export function ValueCascade() {
                     <div className="flex flex-col">
                       <p className="text-[13px] font-semibold text-[#4a4a4a] leading-tight" dangerouslySetInnerHTML={{ __html: item.text }} />
                       <div className="flex items-center gap-2 mt-1.5">
-                        <span className="text-[10px] font-black text-[#d83a3a] line-through opacity-50">{item.price}</span>
+                        <span className="text-[10px] font-black text-[#d83a3a] line-through opacity-50">{format(item.baseUsd)}</span>
                         <span className="text-[10px] font-black text-[#8aad62] uppercase tracking-tighter">¡GRATIS!</span>
                       </div>
                     </div>
@@ -103,7 +103,7 @@ export function ValueCascade() {
                          className="object-cover rounded-2xl shadow-md border-2 border-white" 
                        />
                        <span className="absolute -top-2 -right-2 bg-[#d83a3a] text-white text-[9px] font-black px-2 py-1 rounded-full uppercase tracking-tighter shadow-lg line-through">
-                         {bonus.price}
+                         {format(bonus.baseUsd)}
                        </span>
                     </div>
                     <p className="text-xs font-bold text-[#2b2b2b] leading-relaxed" dangerouslySetInnerHTML={{ __html: bonus.text }} />

@@ -5,7 +5,7 @@ import { useState, useEffect, useCallback } from "react";
 interface CurrencyData {
   symbol: string;
   code: string;
-  rate: number; // Rate relative to 1 USD
+  rate: number;
 }
 
 const DEFAULT_USD: CurrencyData = { symbol: "$", code: "USD", rate: 1 };
@@ -27,30 +27,25 @@ export function useCurrency(baseUsd: number = 9) {
   const [userLocale, setUserLocale] = useState("es-CO");
 
   useEffect(() => {
-    // Detectar locale del navegador
     if (typeof window !== "undefined") {
       setUserLocale(window.navigator.language || "es-CO");
     }
 
     async function detectCurrency() {
       try {
-        // Intento 1: ipwho.is (Más robusta)
+        // Intento 1: ipwho.is (HTTPS y más confiable para tráfico masivo)
         const res = await fetch("https://ipwho.is/");
         const data = await res.json();
         
-        if (data.success) {
-          const country = data.country_code;
-          if (CURRENCY_MAP[country]) {
-            setCurrency(CURRENCY_MAP[country]);
-            return;
-          }
-        }
-        
-        // Intento 2 (Fallback): ip-api.com
-        const res2 = await fetch("http://ip-api.com/json/");
-        const data2 = await res2.json();
-        if (data2.status === "success" && CURRENCY_MAP[data2.countryCode]) {
-          setCurrency(CURRENCY_MAP[data2.countryCode]);
+        if (data.success && CURRENCY_MAP[data.country_code]) {
+          setCurrency(CURRENCY_MAP[data.country_code]);
+        } else {
+           // Intento 2: ipapi.co (HTTPS)
+           const res2 = await fetch("https://ipapi.co/json/");
+           const data2 = await res2.json();
+           if (data2.country_code && CURRENCY_MAP[data2.country_code]) {
+             setCurrency(CURRENCY_MAP[data2.country_code]);
+           }
         }
       } catch (err) {
         console.warn("Currency auto-detection failed, using default USD", err);
@@ -70,14 +65,13 @@ export function useCurrency(baseUsd: number = 9) {
         maximumFractionDigits: 0,
       }).format(usdValue * currency.rate);
     } catch (e) {
-      // Fallback simple si Intl falla
       return `${currency.symbol}${Math.round(usdValue * currency.rate)}`;
     }
   }, [currency, userLocale]);
 
   return { 
     price: format(baseUsd), 
-    oldPrice: format(baseUsd * 3.33), // 70% OFF approx
+    oldPrice: format(baseUsd * 3.33), 
     format,
     code: currency.code, 
     loading 

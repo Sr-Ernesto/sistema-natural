@@ -1,17 +1,17 @@
 export function BenefitsChecks() {
   const benefits = [
-    { text: "Recuperarás tu criterio para leer cualquier etiqueta." },
-    { text: "Lograrás calidad boutique demostrando que lo natural es superior." },
-    { text: "Sanarás desde la coherencia con un ritual sagrado que nutre en lugar de intoxicar." },
-    { text: "Eliminarás el miedo a fallar con un sistema probado y el apoyo real de la comunidad." },
-    { text: "Construirás un negocio con alma, rentable y alineado a tu propósito." },
+    { text: "Adiós a la confusión: Nunca más te quedarás mirando una etiqueta sin entender nada. Ahora sabrás qué es marketing y qué es real." },
+    { text: "Orgullo en cada frasco: Vas a crear labiales y cremas de tan alta calidad que tus amigas te preguntarán dónde las compraste." },
+    { text: "Piel que respira: Sentirás la diferencia de usar ingredientes vivos que nutren de verdad, sin químicos pesados." },
+    { text: "Seguridad Total: Te doy el paso a paso exacto para que te salga bien a la primera, sin experimentos raros." },
+    { text: "Tu propio camino: Si quieres, esto es el inicio de tu propio negocio rentable y alineado con lo que amas." },
   ];
 
   return (
     <section className="py-6.5 md:py-10 px-4 md:px-6 text-[#111]">
       <div className="max-w-[960px] mx-auto text-center">
-        <h2 className="font-serif text-[clamp(28px,6.4vw,42px)] leading-[1.1] mb-3.5 text-black">
-          Lo que este Sistema<br />hará por ti:
+        <h2 className="font-serif text-[clamp(28px,6.4vw,42px)] leading-[1.1] mb-3.5 text-black text-balance">
+          Lo que vas a sentir<br /><span className="text-[#8aad62]">cuando empieces:</span>
         </h2>
         <ul className="list-none p-3.5 md:p-4.5 mx-auto max-w-[760px] bg-white border-2 border-[#8aad62] rounded-[18px] shadow-[0_8px_22px_rgba(0,0,0,0.10)] text-left">
           {benefits.map((benefit, i) => (
@@ -20,7 +20,7 @@ export function BenefitsChecks() {
                 ✓
               </span>
               <span className="font-sans font-medium text-[#6b6b6b] text-[clamp(15px,4vw,16.5px)] leading-[1.35]">
-                <strong>{benefit.text.split(' ')[0]} {benefit.text.split(' ')[1]}</strong> {benefit.text.split(' ').slice(2).join(' ')}
+                <strong className="text-[#1a1a1a]">{benefit.text.split(': ')[0]}:</strong> {benefit.text.split(': ')[1]}
               </span>
             </li>
           ))}

@@ -14,9 +14,9 @@ interface BreathButtonProps {
 }
 
 const VARIANTS = [
-  'SÍ, QUIERO MI TRANSFORMACIÓN',
-  'ACCEDER POR $11.11',
-  'QUIERO MI PIEL SANA'
+  'SÍ, QUIERO EMPEZAR HOY POR $9',
+  'QUIERO MIS RECETAS POR $9',
+  'SÍ, DAME ACCESO POR $9'
 ];
 
 export function BreathButton({ children, className, onClick, href, src }: BreathButtonProps) {

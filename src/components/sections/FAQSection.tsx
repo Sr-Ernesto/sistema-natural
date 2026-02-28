@@ -1,12 +1,12 @@
 export function FAQSection() {
   const faqs = [
     {
-      q: "¿Necesito conocimientos previos?",
-      a: "<p>Para nada. Está diseñado para que empieces desde cero absoluto.</p><p><strong>Para principiantes. Paso a paso.</strong> Simple y claro.</p>"
+      q: "¿De verdad es tan fácil como dices?",
+      a: "<p>¡Honestamente, sí! Está diseñado para que cualquier persona, sin importar su edad o experiencia, pueda hacerlo en su propia cocina.</p><p><strong>Es paso a paso.</strong> Tan simple como seguir una receta de cocina.</p>"
     },
     {
-      q: "¿Qué incluye exactamente?",
-      a: "<ul><li><strong>✅ Sistema Sabiduría Natural:</strong> eBook principal + 10 recursos digitales</li><li><strong>🎁 Regalo 1:</strong> Comunidad Privada de WhatsApp</li><li><strong>🎁 Regalo 2:</strong> Tu Marca natural desde Casa (eBook)</li><li><strong>🎁 Regalo 3:</strong> Actualizaciones gratuitas</li></ul><p>Todo queda para ti para siempre.</p>"
+      q: "¿Qué voy a recibir exactamente?",
+      a: "<ul><li><strong>✅ Mi Guía Personal:</strong> El manual principal con mis secretos mejor guardados.</li><li><strong>🎁 Extra 1:</strong> El truco para ahorrar el 80% en tus mimos diarios.</li><li><strong>🎁 Extra 2:</strong> Cómo dejar de depender de las marcas caras.</li></ul><p>Y todo el material es tuyo para siempre.</p>"
     },
     {
       q: "¿Es físico o digital?",
@@ -17,12 +17,8 @@ export function FAQSection() {
       a: "<p>Apenas compras, te llega el mail con todo.</p><p><strong>Acceso inmediato.</strong></p><p>(Si no lo ves, revisa <strong>Spam</strong> o escríbenos y te ayudamos)</p>"
     },
     {
-      q: "¿Quiénes somos?",
-      a: "<p>Somos <strong>Daniela y Sol</strong>.</p><p>Llevamos <strong>+10 años</strong> creando cosmética natural consciente desde casa.</p><p>Hoy decidimos enseñarlo con una guía clara y simple a mujeres conscientes como tú.</p>"
-    },
-    {
       q: "¿Dónde resuelvo mis dudas?",
-      a: "<p>Dentro de nuestra <strong>Comunidad Privada de WhatsApp</strong>, donde el equipo y otras alumnas te acompañamos en tiempo real.</p><p>También puedes escribirnos por mail o por redes sociales:<br>Instagram: <strong>@sabidurianatural_ok</strong><br>Facebook: <strong>Sabiduría Natural: Maquillaje Natural y Consciente</strong></p>"
+      a: "<p>Puedes escribirnos directamente a nuestro correo de soporte oficial:</p><p>📧 <strong>micosmeticanatural2026@gmail.com</strong></p><p>Te responderemos lo antes posible para que nunca te sientas sola en este proceso.</p>"
     }
   ];
 

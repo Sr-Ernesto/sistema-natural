@@ -36,43 +36,45 @@ export function OfferSection() {
   }, [minutes, seconds]);
 
   return (
-    <section className="py-10 px-4 bg-white">
-      <div className="max-w-6xl mx-auto flex flex-col md:grid md:grid-cols-2 gap-8 items-center">
-        {/* Left Side: Mockup Image */}
-        <div className="w-full max-w-[500px] mx-auto group">
+    <section id="offer-trigger" className="py-16 px-4 bg-white">
+      <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
+        {/* Header Section */}
+        <div className="flex items-center justify-center gap-1 text-[#FFB900] text-sm mb-4">
+          {[...Array(5)].map((_, i) => (
+            <span key={i}>★</span>
+          ))}
+          <span className="text-black/60 ml-1">(771) Reseñas Reales</span>
+        </div>
+
+        <h2 className="font-serif text-3xl md:text-5xl text-[#303030] leading-tight mb-8 max-w-2xl">
+          Toma las riendas: Crea tu propio kit de belleza desde cero. Sin químicos raros, sin precios absurdos y con la tranquilidad de que lo hiciste tú.
+        </h2>
+
+        {/* Product Mockup - Centered and Modern */}
+        <div className="w-full max-w-[580px] mb-10 group relative">
+          <div className="absolute inset-0 bg-[#8aad62]/10 blur-3xl rounded-full scale-75 opacity-50 group-hover:opacity-80 transition-opacity" />
           <Image 
             src="/images/ebooks_hero.webp"
             alt="Alquimia Soberana Mockup"
             width={800}
             height={800}
-            className="w-full h-auto drop-shadow-2xl group-hover:rotate-1 transition-transform"
+            className="w-full h-auto drop-shadow-[0_20px_50px_rgba(0,0,0,0.15)] rounded-[2.5rem] relative z-10 group-hover:scale-[1.02] transition-transform duration-700 ease-out"
           />
         </div>
 
-        {/* Right Side: Price and Urgency */}
-        <div className="w-full flex flex-col items-start text-left">
-          <div className="flex items-center gap-1 text-[#FFB900] text-sm mb-2">
-            {[...Array(5)].map((_, i) => (
-              <span key={i}>★</span>
-            ))}
-            <span className="text-black/60 ml-1">(771) Reseñas</span>
-          </div>
-
-          <h2 className="font-serif text-3xl md:text-4xl text-[#303030] leading-tight mb-4">
-            Accede al Sistema que ya Transformó la Piel, la Belleza y el Negocio Consciente de más de 8.555 mujeres
-          </h2>
-
+        {/* Price and Action Section */}
+        <div className="w-full max-w-md flex flex-col items-center">
           <PriceSkeleton />
 
           {/* Urgency Box */}
           <div className="w-full bg-[#f6e5ff] border-2 border-[#d6bdf5] rounded-2xl p-5 mb-6 relative overflow-hidden shadow-lg group">
             <div className="text-center">
-              <p className="text-[#7b4dd6] font-bold text-[10px] tracking-widest uppercase mb-2">✨ OFERTA EXCLUSIVA ✨</p>
+              <p className="text-[#7b4dd6] font-bold text-[10px] tracking-widest uppercase mb-2">✨ TU RECETA DE BELLEZA EN CASA ✨</p>
               
               {/* FOMO Spots Bar */}
               <div className="mb-4">
                  <div className="flex justify-between items-end mb-1.5">
-                    <span className="text-[10px] font-black text-[#2f2f2f] uppercase tracking-tighter">Cupos Disponibles</span>
+                    <span className="text-[10px] font-black text-[#2f2f2f] uppercase tracking-tighter">Últimos accesos disponibles</span>
                     <AnimatePresence mode="wait">
                       <motion.span 
                         key={spots}
@@ -98,20 +100,19 @@ export function OfferSection() {
                     </motion.div>
                  </div>
                  <p className="text-[9px] text-[#7b4dd6] font-bold mt-1.5 italic animate-pulse">
-                    ¡Atención! {spots} personas están viendo esta oferta ahora mismo
+                    Honestamente, ¡no esperaba que tantas personas se unieran hoy! 
                  </p>
               </div>
 
-              <h3 className="text-[#2f2f2f] font-extrabold text-xl leading-tight uppercase">Solo por hoy,</h3>
-              <p className="text-[#2f2f2f] font-extrabold text-sm mb-4 italic text-[#d83a3a]">Quedan pocos cupos con el 70% de descuento</p>
+              <h3 className="text-[#2f2f2f] font-extrabold text-xl leading-tight uppercase">Mira, lo entiendo perfectamente...</h3>
+              <p className="text-[#2f2f2f] font-extrabold text-sm mb-4 italic text-[#d83a3a]">Por eso he preparado este kit completo para que hoy mismo empieces a notar el cambio</p>
               
               <ul className="text-left space-y-2 mb-6">
                 {[
-                  "Sistema Sabiduría Natural: eBook principal + 10 recursos digitales de apoyo",
-                  "Regalo 1: Comunidad Privada de WhatsApp",
-                  "Regalo 2: \"Tu Marca desde Casa\" ebook",
-                  "Regalo 3: Actualizaciones gratuitas",
-                  "Acceso vitalicio."
+                  "Mi guía personal paso a paso con las recetas exactas que yo misma uso.",
+                  "El truco para que tus productos te cuesten una fracción de lo que pagas hoy.",
+                  "Cómo dejar de ser esclava de las etiquetas brillantes y los nombres caros.",
+                  "Tendrás todo el material para siempre, para consultarlo cuando quieras."
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-2 text-xs font-semibold text-[#4a4a4a]">
                     <span className="w-4 h-4 rounded-full border border-[#16a34a] text-[#16a34a] flex items-center justify-center text-[10px] shrink-0 mt-0.5">✓</span>
@@ -120,17 +121,43 @@ export function OfferSection() {
                 ))}
               </ul>
               
-              <p className="text-[#2f2f2f] font-extrabold text-[10px] uppercase mb-3">⏳ ASEGURA TU LUGAR Y ACCEDE ANTES DE QUE ESTA OFERTA EXPIRE:</p>
+              <p className="text-[#2f2f2f] font-extrabold text-[10px] uppercase mb-3">⏳ Para ayudarte a dar el paso hoy, si te unes antes de que el tiempo termine, te incluyo todos los extras gratis:</p>
               
-              <div className="flex items-center justify-center gap-2 font-black text-[#7b4dd6]">
-                <div className="flex flex-col">
-                  <span className="text-4xl leading-none">01</span>
-                  <span className="text-[8px] uppercase">Hora</span>
+              <div className="flex items-center justify-center gap-3">
+                <div className="flex flex-col items-center">
+                  <div className="bg-white/40 backdrop-blur-sm border border-white/20 rounded-xl p-2 min-w-[60px] shadow-sm relative overflow-hidden">
+                    <AnimatePresence mode="wait">
+                      <motion.span
+                        key={minutes}
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: -20, opacity: 0 }}
+                        className="text-4xl font-black text-[#7b4dd6] block"
+                      >
+                        {minutes.toString().padStart(2, '0')}
+                      </motion.span>
+                    </AnimatePresence>
+                  </div>
+                  <span className="text-[9px] font-bold text-[#7b4dd6]/60 uppercase mt-1.5 tracking-tighter">Minutos</span>
                 </div>
-                <span className="text-2xl -mt-4">:</span>
-                <div className="flex flex-col">
-                  <span className="text-4xl leading-none">{minutes.toString().padStart(2, '0')}</span>
-                  <span className="text-[8px] uppercase">Min</span>
+
+                <span className="text-3xl font-black text-[#7b4dd6] mb-5 animate-pulse">:</span>
+
+                <div className="flex flex-col items-center">
+                  <div className="bg-white/40 backdrop-blur-sm border border-white/20 rounded-xl p-2 min-w-[60px] shadow-sm relative overflow-hidden">
+                    <AnimatePresence mode="wait">
+                      <motion.span
+                        key={seconds}
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: -20, opacity: 0 }}
+                        className="text-4xl font-black text-[#7b4dd6] block"
+                      >
+                        {seconds.toString().padStart(2, '0')}
+                      </motion.span>
+                    </AnimatePresence>
+                  </div>
+                  <span className="text-[9px] font-bold text-[#7b4dd6]/60 uppercase mt-1.5 tracking-tighter">Segundos</span>
                 </div>
               </div>
             </div>

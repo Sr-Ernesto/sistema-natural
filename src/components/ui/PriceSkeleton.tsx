@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
 export function PriceSkeleton() {
-  const { price, oldPrice, loading: currencyLoading } = useCurrency(11.11);
+  const { price, oldPrice, loading: currencyLoading } = useCurrency(9.00);
   const { geo, loading: geoLoading } = useGeoLocation();
   const [step, setStep] = useState(0); // 0: detecting, 1: applying discount, 2: showing price
 
@@ -43,15 +43,38 @@ export function PriceSkeleton() {
         {step === 2 && (
           <motion.div 
             key="price"
-            initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
-            className="flex flex-col"
+            initial={{ scale: 0.9, opacity: 0 }} 
+            animate={{ scale: 1, opacity: 1 }}
+            className="flex flex-col gap-3 w-full"
           >
-            <div className="flex items-center gap-3">
-              <span className="text-[#d83a3a] line-through text-lg">{oldPrice}</span>
-              <span className="font-bold text-2xl text-black">{price}</span>
+            <div className="flex flex-wrap items-end gap-x-4 gap-y-2">
+              <div className="flex flex-col">
+                <span className="text-black/30 font-bold text-[9px] uppercase tracking-wider mb-[-2px]">Antes:</span>
+                <span className="text-[#d83a3a] line-through text-lg md:text-xl font-bold opacity-60">{oldPrice}</span>
+              </div>
+              
+              <div className="flex flex-col">
+                <span className="text-[#8aad62] font-black text-[9px] uppercase tracking-wider mb-[-2px]">Hoy solo:</span>
+                <span className="font-black text-4xl md:text-5xl text-[#1a1a1a] tracking-tighter drop-shadow-sm leading-none">
+                  {price}
+                </span>
+              </div>
+              
+              <motion.div 
+                initial={{ rotate: -5, scale: 0.8 }}
+                animate={{ rotate: 0, scale: 1 }}
+                className="bg-[#FEF3C7] text-[#92400E] font-black text-[10px] md:text-xs px-2.5 py-1 rounded-full border border-[#92400E]/20 shadow-sm mb-0.5"
+              >
+                70% OFF
+              </motion.div>
             </div>
-            <div className="inline-block bg-black text-white text-[10px] uppercase font-bold px-2 py-1 rounded w-fit mt-1">
-              Oferta 70% OFF por tiempo limitado🎁
+            
+            <div className="flex items-center gap-2 max-w-sm">
+              <div className="h-px flex-1 bg-black/5" />
+              <div className="flex items-center gap-1.5 bg-black text-white text-[8px] md:text-[9px] uppercase font-black px-2.5 py-1 rounded-full tracking-[0.05em] shadow-lg">
+                <span className="animate-pulse text-[10px]">🎁</span> Oferta por tiempo limitado
+              </div>
+              <div className="h-px flex-1 bg-black/5" />
             </div>
           </motion.div>
         )}

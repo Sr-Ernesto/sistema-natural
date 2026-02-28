@@ -20,7 +20,7 @@ const CURRENCY_MAP: Record<string, CurrencyData> = {
   PE: { symbol: "S/", code: "PEN", rate: 3.7 },
 };
 
-export function useCurrency(baseUsd: number = 11.11) {
+export function useCurrency(baseUsd: number = 9.00) {
   const [currency, setCurrency] = useState<CurrencyData>(DEFAULT_USD);
   const [loading, setLoading] = useState(true);
 
@@ -50,15 +50,15 @@ export function useCurrency(baseUsd: number = 11.11) {
   const formattedPrice = new Intl.NumberFormat("es-CO", {
     style: "currency",
     currency: currency.code,
-    minimumFractionDigits: currency.code === "USD" ? 2 : 0,
-    maximumFractionDigits: currency.code === "USD" ? 2 : 0,
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
   }).format(baseUsd * currency.rate);
 
   const formattedOldPrice = new Intl.NumberFormat("es-CO", {
     style: "currency",
     currency: currency.code,
-    minimumFractionDigits: currency.code === "USD" ? 2 : 0,
-    maximumFractionDigits: currency.code === "USD" ? 2 : 0,
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
   }).format(baseUsd * 3.33 * currency.rate); // Approx 70% off
 
   return { 

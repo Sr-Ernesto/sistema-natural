@@ -6,16 +6,41 @@ import { useCurrency } from "@/hooks/useCurrency";
 
 export function StickyOffer() {
   const [show, setShow] = useState(false);
-  const { price, oldPrice, loading } = useCurrency(11.11);
+  const [timeLeft, setTimeLeft] = useState(900); // 15:00 en segundos
+  const { price, oldPrice, loading } = useCurrency(9.00);
   const checkoutUrl = "https://pay.hotmart.com/F104652497O?checkoutMode=10&src=sticky_footer";
 
   useEffect(() => {
     const handleScroll = () => {
-      setShow(window.scrollY > 220);
+      // Solo mostrar cuando haya bajado más de 2500px (donde suele empezar la oferta)
+      // O cuando encuentre el elemento de la oferta
+      const offerSection = document.getElementById('offer-trigger');
+      if (offerSection) {
+        const rect = offerSection.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          setShow(true);
+        }
+      } else {
+        setShow(window.scrollY > 2500);
+      }
     };
+
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
+    }, 1000);
+
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearInterval(timer);
+    };
   }, []);
+
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  };
 
   return (
     <AnimatePresence>
@@ -28,20 +53,18 @@ export function StickyOffer() {
           className="fixed z-[60] left-0 right-0 bottom-0 flex items-center justify-between gap-2.5 bg-white/95 backdrop-blur-2xl border-t border-black/5 shadow-[0_-10px_28px_rgba(0,0,0,0.1)] p-4 px-6"
         >
           <div className="flex flex-col items-start gap-0.5 leading-[1.1] min-w-0">
+            <span className="font-sans text-[10px] font-black text-[#d83a3a] uppercase animate-pulse">
+              La oferta termina en {formatTime(timeLeft)}
+            </span>
             {!loading && (
-              <>
-                <span className="font-sans text-[clamp(11px,3.1vw,12px)] text-[#d83a3a] line-through whitespace-nowrap">
+              <div className="flex items-baseline gap-2 whitespace-nowrap">
+                <span className="font-sans text-[clamp(18px,5vw,22px)] font-black text-[#0f172a]">
+                  {price}
+                </span>
+                <span className="font-sans text-[clamp(11px,3.1vw,12px)] text-[#d83a3a] line-through">
                   {oldPrice}
                 </span>
-                <div className="flex items-baseline gap-2 whitespace-nowrap">
-                  <span className="font-sans text-[clamp(18px,5vw,22px)] font-black text-[#0f172a]">
-                    {price}
-                  </span>
-                  <span className="hidden sm:inline-block font-sans text-xs font-black text-[#92400E] bg-[#FEF3C7] border border-[#92400E]/18 px-2 py-0.5 rounded-full leading-[1.1]">
-                    –70%
-                  </span>
-                </div>
-              </>
+              </div>
             )}
           </div>
 

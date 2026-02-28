@@ -9,15 +9,155 @@
  Detected additional lockfiles: 
    * /home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/package-lock.json
 
- ⨯ Failed to start server
-Error: listen EADDRINUSE: address already in use :::3001
-    at <unknown> (Error: listen EADDRINUSE: address already in use :::3001)
-    at new Promise (<anonymKilled
+   ▲ Next.js 15.5.10 (Turbopack)
+   - Local:        http://localhost:3020
+   - Network:      http://192.168.1.71:3020
+   - Environments: .env.local
 
-  code: 'EADDRINUSE',
-  errno: -98,
-  syscall: 'listen',
-  address: '::',
-  port: 3001
-}
-[?25h
+ ✓ Starting...
+ ✓ Ready in 878ms
+ ○ Compiling / ...
+ ✓ Compiled / in 3.8s
+ GET / 200 in 4281ms
+ ⚠ Cross origin request detected from 192.168.1.71 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ ✓ Compiled /api/events in 237ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 542ms
+ POST /api/events 200 in 904ms
+ ✓ Compiled in 88ms
+ ✓ Compiled in 79ms
+ ⨯ ./projects/sistema-natural-nextjs/src/components/sections/ValueCascade.tsx:97:19
+Parsing ecmascript source code failed
+[0m [90m  95 |[39m                     [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m  96 |[39m                   [33m<[39m[33m/[39m[33mmotion[39m[33m.[39mdiv[33m>[39m
+[31m[1m>[22m[39m[90m  97 |[39m                 ))}
+ [90m     |[39m                   [31m[1m^[22m[39m
+ [90m  98 |[39m               [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m  99 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 100 |[39m[0m
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./projects/sistema-natural-nextjs/src/components/sections/ValueCascade.tsx [Client Component Browser]
+    ./projects/sistema-natural-nextjs/src/app/page.tsx [Client Component Browser]
+    ./projects/sistema-natural-nextjs/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/sistema-natural-nextjs/src/components/sections/ValueCascade.tsx [Client Component SSR]
+    ./projects/sistema-natural-nextjs/src/app/page.tsx [Client Component SSR]
+    ./projects/sistema-natural-nextjs/src/app/page.tsx [Server Component]
+
+
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 1102ms
+ GET / 500 in 1271ms
+ GET /favicon.ico 500 in 28ms
+ ⨯ ./projects/sistema-natural-nextjs/src/components/sections/ValueCascade.tsx:97:19
+Parsing ecmascript source code failed
+[0m [90m  95 |[39m                     [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m  96 |[39m                   [33m<[39m[33m/[39m[33mmotion[39m[33m.[39mdiv[33m>[39m
+[31m[1m>[22m[39m[90m  97 |[39m                 ))}
+ [90m     |[39m                   [31m[1m^[22m[39m
+ [90m  98 |[39m               [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m  99 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 100 |[39m[0m
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./projects/sistema-natural-nextjs/src/components/sections/ValueCascade.tsx [Client Component Browser]
+    ./projects/sistema-natural-nextjs/src/app/page.tsx [Client Component Browser]
+    ./projects/sistema-natural-nextjs/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/sistema-natural-nextjs/src/components/sections/ValueCascade.tsx [Client Component SSR]
+    ./projects/sistema-natural-nextjs/src/app/page.tsx [Client Component SSR]
+    ./projects/sistema-natural-nextjs/src/app/page.tsx [Server Component]
+
+
+ GET / 500 in 45ms
+ GET /favicon.ico 500 in 34ms
+ ⨯ ./projects/sistema-natural-nextjs/src/components/sections/ValueCascade.tsx:97:19
+Parsing ecmascript source code failed
+[0m [90m  95 |[39m                     [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m  96 |[39m                   [33m<[39m[33m/[39m[33mmotion[39m[33m.[39mdiv[33m>[39m
+[31m[1m>[22m[39m[90m  97 |[39m                 ))}
+ [90m     |[39m                   [31m[1m^[22m[39m
+ [90m  98 |[39m               [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m  99 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 100 |[39m[0m
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./projects/sistema-natural-nextjs/src/components/sections/ValueCascade.tsx [Client Component Browser]
+    ./projects/sistema-natural-nextjs/src/app/page.tsx [Client Component Browser]
+    ./projects/sistema-natural-nextjs/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/sistema-natural-nextjs/src/components/sections/ValueCascade.tsx [Client Component SSR]
+    ./projects/sistema-natural-nextjs/src/app/page.tsx [Client Component SSR]
+    ./projects/sistema-natural-nextjs/src/app/page.tsx [Server Component]
+
+
+ GET / 500 in 37ms
+ GET /favicon.ico 500 in 29ms
+ ⨯ ./projects/sistema-natural-nextjs/src/components/sections/ValueCascade.tsx:97:19
+Parsing ecmascript source code failed
+[0m [90m  95 |[39m                     [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m  96 |[39m                   [33m<[39m[33m/[39m[33mmotion[39m[33m.[39mdiv[33m>[39m
+[31m[1m>[22m[39m[90m  97 |[39m                 ))}
+ [90m     |[39m                   [31m[1m^[22m[39m
+ [90m  98 |[39m               [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m  99 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 100 |[39m[0m
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./projects/sistema-natural-nextjs/src/components/sections/ValueCascade.tsx [Client Component Browser]
+    ./projects/sistema-natural-nextjs/src/app/page.tsx [Client Component Browser]
+    ./projects/sistema-natural-nextjs/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./projects/sistema-natural-nextjs/src/components/sections/ValueCascade.tsx [Client Component SSR]
+    ./projects/sistema-natural-nextjs/src/app/page.tsx [Client Component SSR]
+    ./projects/sistema-natural-nextjs/src/app/page.tsx [Server Component]
+
+
+ GET / 500 in 38ms
+ GET /favicon.ico 500 in 24ms
+ ✓ Compiled / in 13ms
+ GET / 200 in 286ms
+ GET / 200 in 187ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 262ms
+ POST /api/events 200 in 656ms
+ POST /api/events 200 in 595ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 229ms
+ ✓ Compiled in 5ms
+ ✓ Compiled in 50ms
+ ✓ Compiled in 60ms
+ ✓ Compiled in 42ms
+ ✓ Compiled in 91ms
+ ✓ Compiled in 60ms
+ ✓ Compiled in 53ms
+ GET / 200 in 275ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 248ms
+ POST /api/events 200 in 646ms
+ ✓ Compiled in 6ms
+ ✓ Compiled in 87ms
+ GET / 200 in 282ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 268ms
+ POST /api/events 200 in 661ms
+ ✓ Compiled in 70ms
+ ✓ Compiled in 65ms
+ GET / 200 in 263ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 274ms
+ POST /api/events 200 in 706ms
+ ✓ Compiled in 99ms
+ ✓ Compiled in 78ms

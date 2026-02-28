@@ -25,7 +25,7 @@ export function TheDiscovery() {
           <p>Pero aquí no acaba la historia...</p>
 
           <p>
-            Entendí que para las marcas de lujo, tu piel es solo una cifra. Si el producto dura 3 años en una estantería, para ellos es un éxito, aunque esté lleno de conservantes que <strong>alteran tus hormonas.</strong>
+            Entendí que para las marcas de lujo, tu piel es solo una cifra. Para que un labial dure todo el día o una base no se mueva, le meten <strong>metales pesados y conservantes</strong> que alteran tus hormonas y tu piel absorbe en segundos.
           </p>
 
           <div className="py-4">

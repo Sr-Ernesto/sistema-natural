@@ -2,8 +2,8 @@ export function BenefitsChecks() {
   const benefits = [
     { text: "Adiós a la confusión: Nunca más te quedarás mirando una etiqueta sin entender nada. Ahora sabrás qué es marketing y qué es real." },
     { text: "Orgullo en cada frasco: Vas a crear labiales y cremas de tan alta calidad que tus amigas te preguntarán dónde las compraste." },
-    { text: "Piel que respira: Sentirás la diferencia de usar ingredientes vivos que nutren de verdad, sin químicos pesados." },
-    { text: "Seguridad Total: Te doy el paso a paso exacto para que te salga bien a la primera, sin experimentos raros." },
+    { text: "Piel que respira: Ya no vas a 'tapar' tus imperfecciones con químicos; vas a usar ingredientes vivos que nutren de verdad." },
+    { text: "Seguridad Total: Maquillaje 100% libre de tóxicos. Te doy el paso a paso para que te salga bien a la primera." },
     { text: "Tu propio camino: Si quieres, esto es el inicio de tu propio negocio rentable y alineado con lo que amas." },
   ];
 

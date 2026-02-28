@@ -22,7 +22,7 @@ export function HeroPromise() {
           <strong>de dejar de ser esclava de las marcas</strong><br />
           <strong>y mi piel nunca ha estado mejor.</strong>
           <span className="block mt-2.5">
-            Olvídate de precios absurdos. Te enseño a <strong>recuperar tu libertad</strong> creando tus propias cositas con el orgullo de decir: <strong>"Esto lo hice yo"</strong>.
+            Descubrí que podía crear mi propio <strong>maquillaje natural y profesional</strong>. Ahora me veo hermosa sin poner en riesgo mi salud y, honestamente, ahorrando una pequeña fortuna.
           </span>
         </p>
 

@@ -1,10 +1,9 @@
 "use client";
 
 import { motion } from "motion/react";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useState, useMemo } from "react";
 import { cn } from "@/lib/utils";
 import { useSearchParams } from "next/navigation";
-
 import { useCurrency } from "@/hooks/useCurrency";
 
 interface BreathButtonProps {
@@ -15,29 +14,36 @@ interface BreathButtonProps {
   src?: string; // Hotmart SRC parameter (e.g., 'hero', 'offer', 'exit')
 }
 
+const VARIANTS_TEMPLATES = [
+  "SÍ, QUIERO EMPEZAR HOY POR {price}",
+  "QUIERO MIS RECETAS POR {price}",
+  "SÍ, DAME ACCESO POR {price}"
+];
+
 export function BreathButton({ children, className, onClick, href, src }: BreathButtonProps) {
-  const { price } = useCurrency();
+  const { price, loading } = useCurrency();
   const searchParams = useSearchParams();
   const [finalUrl, setFinalUrl] = useState(href || "");
-  const [variant, setVariant] = useState("");
-
-  const VARIANTS = [
-    `SÍ, QUIERO EMPEZAR HOY POR ${price}`,
-    `QUIERO MIS RECETAS POR ${price}`,
-    `SÍ, DAME ACCESO POR ${price}`
-  ];
+  const [variantIndex, setVariantIndex] = useState<number | null>(null);
 
   useEffect(() => {
-    // Simple A/B testing logic
-    const savedVariant = localStorage.getItem('ab_variant_cta');
-    if (savedVariant && VARIANTS.includes(savedVariant)) {
-      setVariant(savedVariant);
+    // Simple A/B testing logic using Index instead of raw string
+    const savedIndex = localStorage.getItem('ab_variant_cta_index');
+    if (savedIndex !== null && !isNaN(parseInt(savedIndex))) {
+      setVariantIndex(parseInt(savedIndex));
     } else {
-      const randomVariant = VARIANTS[Math.floor(Math.random() * VARIANTS.length)];
-      localStorage.setItem('ab_variant_cta', randomVariant);
-      setVariant(randomVariant);
+      const randomIndex = Math.floor(Math.random() * VARIANTS_TEMPLATES.length);
+      localStorage.setItem('ab_variant_cta_index', randomIndex.toString());
+      setVariantIndex(randomIndex);
     }
   }, []);
+
+  // Compute the current display text based on the selected variant index and current price
+  const displayText = useMemo(() => {
+    if (variantIndex === null) return children;
+    const template = VARIANTS_TEMPLATES[variantIndex];
+    return template.replace("{price}", price);
+  }, [variantIndex, price, children]);
 
   useEffect(() => {
     if (!href) return;
@@ -66,7 +72,7 @@ export function BreathButton({ children, className, onClick, href, src }: Breath
     if (typeof window !== "undefined" && (window as any).dataLayer) {
       (window as any).dataLayer.push({
         event: 'cta_click',
-        cta_variant: variant || (typeof children === 'string' ? children : 'custom'),
+        cta_text: displayText,
         cta_location: src || 'unknown'
       });
     }
@@ -96,7 +102,7 @@ export function BreathButton({ children, className, onClick, href, src }: Breath
         className
       )}
     >
-      {variant || children}
+      {displayText}
     </motion.button>
   );
 }

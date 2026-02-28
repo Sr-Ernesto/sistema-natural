@@ -22,9 +22,11 @@ import { CostOfInaction } from "@/components/sections/CostOfInaction";
 import { TheDiscovery } from "@/components/sections/TheDiscovery";
 import { VideoSalesLetter } from "@/components/sections/VideoSalesLetter";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
+import { useCurrency } from "@/hooks/useCurrency";
 import { Suspense } from "react";
 
 function HomeContent() {
+  const { price } = useCurrency();
   const checkoutUrl = "https://pay.hotmart.com/F104652497O?checkoutMode=10";
 
   return (

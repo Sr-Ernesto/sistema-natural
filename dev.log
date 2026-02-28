@@ -35,3 +35,12 @@ Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allow
  ✓ Compiled in 6ms
  ✓ Compiled in 4ms
  ✓ Compiled in 42ms
+ GET / 200 in 528ms
+ POST /api/events 200 in 735ms
+ GET / 200 in 166ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 229ms
+ POST /api/events 200 in 610ms
+ GET / 200 in 175ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 237ms
+ POST /api/events 200 in 631ms
+ ✓ Compiled in 13ms

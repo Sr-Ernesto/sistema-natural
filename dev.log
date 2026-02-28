@@ -110,3 +110,7 @@ Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allow
  GET / 200 in 542ms
  POST /api/events 200 in 649ms
  ✓ Compiled in 87ms
+ GET / 200 in 432ms
+ POST /api/events 200 in 714ms
+ GET / 200 in 191ms
+ POST /api/events 200 in 641ms

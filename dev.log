@@ -44,3 +44,38 @@ Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allow
  GET /favicon.ico?favicon.0b3bf435.ico 200 in 237ms
  POST /api/events 200 in 631ms
  ✓ Compiled in 13ms
+ GET / 200 in 409ms
+ POST /api/events 200 in 608ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 235ms
+ ✓ Compiled in 81ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 88ms
+ ⨯ ReferenceError: price is not defined
+    at HomeContent (src/app/page.tsx:87:40)
+  85 |       <section className="flex flex-col items-center py-10 px-4 bg-gradient-to-b from-transparent to-[#f6e5ff]/10">
+  86 |         <BreathButton href={checkoutUrl} src="bottom_final">
+> 87 |           SÍ, QUIERO MI PIEL SANA POR {price}
+     |                                        ^
+  88 |         </BreathButton>
+  89 |         <DynamicDate />
+  90 |       </section> {
+  digest: '257986621'
+}
+ ⨯ ReferenceError: price is not defined
+    at HomeContent (src/app/page.tsx:87:40)
+  85 |       <section className="flex flex-col items-center py-10 px-4 bg-gradient-to-b from-transparent to-[#f6e5ff]/10">
+  86 |         <BreathButton href={checkoutUrl} src="bottom_final">
+> 87 |           SÍ, QUIERO MI PIEL SANA POR {price}
+     |                                        ^
+  88 |         </BreathButton>
+  89 |         <DynamicDate />
+  90 |       </section> {
+  digest: '257986621'
+}
+ GET / 200 in 399ms
+ GET / 200 in 399ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 303ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 262ms
+ POST /api/events 200 in 684ms
+ POST /api/events 200 in 575ms

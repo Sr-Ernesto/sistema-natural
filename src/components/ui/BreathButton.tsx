@@ -5,6 +5,8 @@ import { ReactNode, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { useSearchParams } from "next/navigation";
 
+import { useCurrency } from "@/hooks/useCurrency";
+
 interface BreathButtonProps {
   children?: ReactNode;
   className?: string;
@@ -13,16 +15,17 @@ interface BreathButtonProps {
   src?: string; // Hotmart SRC parameter (e.g., 'hero', 'offer', 'exit')
 }
 
-const VARIANTS = [
-  'SÍ, QUIERO EMPEZAR HOY POR $9',
-  'QUIERO MIS RECETAS POR $9',
-  'SÍ, DAME ACCESO POR $9'
-];
-
 export function BreathButton({ children, className, onClick, href, src }: BreathButtonProps) {
+  const { price } = useCurrency();
   const searchParams = useSearchParams();
   const [finalUrl, setFinalUrl] = useState(href || "");
   const [variant, setVariant] = useState("");
+
+  const VARIANTS = [
+    `SÍ, QUIERO EMPEZAR HOY POR ${price}`,
+    `QUIERO MIS RECETAS POR ${price}`,
+    `SÍ, DAME ACCESO POR ${price}`
+  ];
 
   useEffect(() => {
     // Simple A/B testing logic

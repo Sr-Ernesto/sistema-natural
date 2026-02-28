@@ -84,7 +84,7 @@ function HomeContent() {
 
       <section className="flex flex-col items-center py-10 px-4 bg-gradient-to-b from-transparent to-[#f6e5ff]/10">
         <BreathButton href={checkoutUrl} src="bottom_final">
-          SÍ, QUIERO MI PIEL SANA POR $9.00
+          SÍ, QUIERO MI PIEL SANA POR {price}
         </BreathButton>
         <DynamicDate />
       </section>

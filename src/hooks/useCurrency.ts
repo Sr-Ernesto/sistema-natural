@@ -24,22 +24,33 @@ const CURRENCY_MAP: Record<string, CurrencyData> = {
 export function useCurrency(baseUsd: number = 9) {
   const [currency, setCurrency] = useState<CurrencyData>(DEFAULT_USD);
   const [loading, setLoading] = useState(true);
+  const [userLocale, setUserLocale] = useState("es-CO");
 
   useEffect(() => {
+    // Detectar locale del navegador
+    if (typeof window !== "undefined") {
+      setUserLocale(window.navigator.language || "es-CO");
+    }
+
     async function detectCurrency() {
       try {
-        // Usamos una API de geolocalización robusta
-        const res = await fetch("https://ipapi.co/json/");
-        if (!res.ok) throw new Error("API Limit");
+        // Intento 1: ipwho.is (Más robusta)
+        const res = await fetch("https://ipwho.is/");
         const data = await res.json();
-        const country = data.country_code;
         
-        if (CURRENCY_MAP[country]) {
-          setCurrency(CURRENCY_MAP[country]);
-        } else if (data.currency) {
-          // Intento por código de moneda si el país no está mapeado
-          const found = Object.values(CURRENCY_MAP).find(c => c.code === data.currency);
-          if (found) setCurrency(found);
+        if (data.success) {
+          const country = data.country_code;
+          if (CURRENCY_MAP[country]) {
+            setCurrency(CURRENCY_MAP[country]);
+            return;
+          }
+        }
+        
+        // Intento 2 (Fallback): ip-api.com
+        const res2 = await fetch("http://ip-api.com/json/");
+        const data2 = await res2.json();
+        if (data2.status === "success" && CURRENCY_MAP[data2.countryCode]) {
+          setCurrency(CURRENCY_MAP[data2.countryCode]);
         }
       } catch (err) {
         console.warn("Currency auto-detection failed, using default USD", err);
@@ -51,13 +62,18 @@ export function useCurrency(baseUsd: number = 9) {
   }, []);
 
   const format = useCallback((usdValue: number) => {
-    return new Intl.NumberFormat("es-CO", {
-      style: "currency",
-      currency: currency.code,
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    }).format(usdValue * currency.rate);
-  }, [currency]);
+    try {
+      return new Intl.NumberFormat(userLocale, {
+        style: "currency",
+        currency: currency.code,
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      }).format(usdValue * currency.rate);
+    } catch (e) {
+      // Fallback simple si Intl falla
+      return `${currency.symbol}${Math.round(usdValue * currency.rate)}`;
+    }
+  }, [currency, userLocale]);
 
   return { 
     price: format(baseUsd), 

@@ -6,7 +6,7 @@ export function TheDiscovery() {
       <div className="max-w-[620px] mx-auto">
         <RevealOnScroll>
           <p className="font-serif italic text-2xl md:text-3xl text-[#303030] leading-relaxed mb-8 text-center">
-            "Un día decidí mirar 'debajo del capó' de mi crema favorita... y me sentí engañada."
+            "Un día decidí mirar 'debajo del capó' de mi labial favorito... y me sentí engañada."
           </p>
         </RevealOnScroll>
 

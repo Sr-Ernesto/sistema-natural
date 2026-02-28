@@ -66,7 +66,7 @@ function HomeContent() {
             <p className="font-sans text-lg md:text-xl text-[#4a4a4a] leading-relaxed mb-8">
               Mira, estoy tan segura de que te va a encantar crear tus propias cosas, que te propongo un trato: 
               <strong> Prueba la guía por 7 días.</strong> Si en una semana no sientes el orgullo de haber hecho 
-              tu primer labial o tu crema mejor que la de marca, me escribes y te devuelvo cada centavo. 
+              tu primer labial o rubor mejor que el de marca, me escribes y te devuelvo cada centavo. 
               Sin preguntas. Quiero que esto sea el inicio de tu libertad, no una carga.
             </p>
             <div className="bg-white p-6 rounded-2xl shadow-sm border border-[#d6bdf5]/30 mb-8">

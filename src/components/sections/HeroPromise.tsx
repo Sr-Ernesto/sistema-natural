@@ -33,11 +33,11 @@ export function HeroPromise() {
           </p>
           <div className="space-y-3">
             <div className="flex justify-between items-center border-b border-[#8aad62]/20 pb-2">
-              <span className="font-sans text-sm text-[#4a4a4a]">Tu crema de marca:</span>
+              <span className="font-sans text-sm text-[#4a4a4a]">Tu labial premium de marca:</span>
               <span className="font-sans font-bold text-[#d83a3a]">{format(35)}</span>
             </div>
             <div className="flex justify-between items-center border-b border-[#8aad62]/20 pb-2">
-              <span className="font-sans text-sm text-[#4a4a4a]">Tu propia crema:</span>
+              <span className="font-sans text-sm text-[#4a4a4a]">Tu propio labial natural:</span>
               <span className="font-sans font-bold text-[#8aad62]">{format(0.8)}</span>
             </div>
             <div className="flex justify-between items-center">

@@ -1,82 +1,39 @@
 "use client";
 
 import { motion } from "motion/react";
-import { ReactNode, useEffect, useState, useMemo } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { useSearchParams } from "next/navigation";
-import { useCurrency } from "@/hooks/useCurrency";
 
 interface BreathButtonProps {
-  children?: ReactNode;
+  children: ReactNode;
   className?: string;
   onClick?: () => void;
   href?: string;
-  src?: string; // Hotmart SRC parameter (e.g., 'hero', 'offer', 'exit')
+  src?: string;
 }
 
-const VARIANTS_TEMPLATES = [
-  "SÍ, QUIERO EMPEZAR HOY POR {price}",
-  "QUIERO MIS RECETAS POR {price}",
-  "SÍ, DAME ACCESO POR {price}"
-];
-
 export function BreathButton({ children, className, onClick, href, src }: BreathButtonProps) {
-  const { price, loading } = useCurrency();
-  const searchParams = useSearchParams();
   const [finalUrl, setFinalUrl] = useState(href || "");
-  const [variantIndex, setVariantIndex] = useState<number | null>(null);
-
-  useEffect(() => {
-    // Simple A/B testing logic using Index instead of raw string
-    const savedIndex = localStorage.getItem('ab_variant_cta_index');
-    if (savedIndex !== null && !isNaN(parseInt(savedIndex))) {
-      setVariantIndex(parseInt(savedIndex));
-    } else {
-      const randomIndex = Math.floor(Math.random() * VARIANTS_TEMPLATES.length);
-      localStorage.setItem('ab_variant_cta_index', randomIndex.toString());
-      setVariantIndex(randomIndex);
-    }
-  }, []);
-
-  // Compute the current display text based on the selected variant index and current price
-  const displayText = useMemo(() => {
-    if (variantIndex === null) return children;
-    const template = VARIANTS_TEMPLATES[variantIndex];
-    return template.replace("{price}", price);
-  }, [variantIndex, price, children]);
 
   useEffect(() => {
     if (!href) return;
-
     try {
       const url = new URL(href);
-      
-      // 1. Forward all current UTMs and other params from the browser to Hotmart
-      searchParams.forEach((value, key) => {
+      // Evitar useSearchParams() para no obligar al Suspense
+      const params = new URLSearchParams(window.location.search);
+      params.forEach((value, key) => {
         url.searchParams.set(key, value);
       });
-
-      // 2. Add Hotmart-specific 'src' parameter to identify which button was clicked
       if (src) {
         url.searchParams.set("src", src);
       }
-
       setFinalUrl(url.toString());
     } catch (e) {
-      console.error("Error building Hotmart URL", e);
+      console.error("Error Hotmart URL", e);
     }
-  }, [href, searchParams, src]);
+  }, [href, src]);
 
   const handleClick = (e: React.MouseEvent) => {
-    // Track GA4 event
-    if (typeof window !== "undefined" && (window as any).dataLayer) {
-      (window as any).dataLayer.push({
-        event: 'cta_click',
-        cta_text: displayText,
-        cta_location: src || 'unknown'
-      });
-    }
-
     if (onClick) onClick();
     if (href) {
       e.preventDefault();
@@ -86,23 +43,23 @@ export function BreathButton({ children, className, onClick, href, src }: Breath
 
   return (
     <motion.button
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
       animate={{
-        scale: [1, 1.03, 1],
+        scale: [1, 1.02, 1],
       }}
       transition={{
-        duration: 2,
+        duration: 3,
         repeat: Infinity,
         ease: "easeInOut",
       }}
       onClick={handleClick}
       className={cn(
-        "px-8 py-4 bg-[#8aad62] text-white rounded-full font-bold shadow-lg transition-colors hover:bg-[#7a9a56] cursor-pointer inline-block text-center no-underline border-none uppercase",
+        "px-10 py-5 bg-[#8aad62] text-white rounded-full font-black shadow-[0_15px_35px_rgba(138,173,98,0.4)] transition-all hover:bg-[#7a9a56] cursor-pointer inline-block text-center no-underline border-none uppercase tracking-tight",
         className
       )}
     >
-      {displayText}
+      {children}
     </motion.button>
   );
 }

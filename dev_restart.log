@@ -1,6 +1,6 @@
 
 > sistema-natural-nextjs@0.1.0 dev
-> next dev --turbopack
+> next dev --turbopack -p 3100
 
  ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
  We detected multiple lockfiles and selected the directory of /home/osbrai/.openclaw/workspace/package-lock.json as the root directory.
@@ -15,15 +15,10 @@
    - Environments: .env.local
 
  ✓ Starting...
- ✓ Ready in 857ms
+ ✓ Ready in 836ms
  ○ Compiling / ...
- ✓ Compiled / in 2.9s
- GET / 200 in 168ms
- ✓ Compiled /api/events in 345ms
- GET /favicon.ico?favicon.0b3bf435.ico 200 in 647ms
- POST /api/events 200 in 871ms
- ✓ Compiled in 78ms
- ✓ Compiled in 65ms
+ ✓ Compiled / in 2.8s
+ GET / 200 in 3289ms
  ⨯ [Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/server/app/page/app-build-manifest.json'] {
   errno: -2,
   code: 'ENOENT',
@@ -31,12 +26,12 @@
   path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/server/app/page/app-build-manifest.json'
 }
  ○ Compiling /_error ...
- ✓ Compiled /_error in 1203ms
- ⨯ [Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.uu1gm5rs9oi'] {
+ ✓ Compiled /_error in 1077ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.00nwq4jv65vmm'] {
   errno: -2,
   code: 'ENOENT',
   syscall: 'open',
-  path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.uu1gm5rs9oi'
+  path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.00nwq4jv65vmm'
 }
 [Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/server/app/page/app-build-manifest.json'] {
   errno: -2,
@@ -44,23 +39,17 @@
   syscall: 'open',
   path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/server/app/page/app-build-manifest.json'
 }
- ⨯ [Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.rwqf2ojaxja'] {
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.jxf0jm4qrt'] {
   errno: -2,
   code: 'ENOENT',
   syscall: 'open',
-  path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.rwqf2ojaxja'
+  path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.jxf0jm4qrt'
 }
-[Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.6ju5xc3dgrt'] {
+[Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.tqzbaxo46y'] {
   errno: -2,
   code: 'ENOENT',
   syscall: 'open',
-  path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.6ju5xc3dgrt'
-}
- ⨯ [Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/server/app/favicon.ico/[__metadata_id__]/route/app-paths-manifest.json'] {
-  errno: -2,
-  code: 'ENOENT',
-  syscall: 'open',
-  path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/server/app/favicon.ico/[__metadata_id__]/route/app-paths-manifest.json'
+  path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.tqzbaxo46y'
 }
  ⨯ [Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/server/app/page/app-build-manifest.json'] {
   errno: -2,
@@ -68,11 +57,11 @@
   syscall: 'open',
   path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/server/app/page/app-build-manifest.json'
 }
- ⨯ [Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.s8lqemg9u9'] {
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.3ecvrvplrg1'] {
   errno: -2,
   code: 'ENOENT',
   syscall: 'open',
-  path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.s8lqemg9u9'
+  path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.3ecvrvplrg1'
 }
 [Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/server/app/page/app-build-manifest.json'] {
   errno: -2,
@@ -80,57 +69,16 @@
   syscall: 'open',
   path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/server/app/page/app-build-manifest.json'
 }
- ⨯ [Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.8lwyab08r9h'] {
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.2z4g1v3ebgr'] {
   errno: -2,
   code: 'ENOENT',
   syscall: 'open',
-  path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.8lwyab08r9h'
+  path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.2z4g1v3ebgr'
 }
-[Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.h4nwcgks2n7'] {
+[Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.u8mzz4lpj'] {
   errno: -2,
   code: 'ENOENT',
   syscall: 'open',
-  path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.h4nwcgks2n7'
+  path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.u8mzz4lpj'
 }
- ⨯ [Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/server/app/favicon.ico/[__metadata_id__]/route/app-paths-manifest.json'] {
-  errno: -2,
-  code: 'ENOENT',
-  syscall: 'open',
-  path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/server/app/favicon.ico/[__metadata_id__]/route/app-paths-manifest.json'
-}
- ⨯ [Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/server/app/page/app-build-manifest.json'] {
-  errno: -2,
-  code: 'ENOENT',
-  syscall: 'open',
-  path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/server/app/page/app-build-manifest.json'
-}
- ⨯ [Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.o77krem2wr'] {
-  errno: -2,
-  code: 'ENOENT',
-  syscall: 'open',
-  path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.o77krem2wr'
-}
-[Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/server/app/page/app-build-manifest.json'] {
-  errno: -2,
-  code: 'ENOENT',
-  syscall: 'open',
-  path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/server/app/page/app-build-manifest.json'
-}
- ⨯ [Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.feoojoqnkud'] {
-  errno: -2,
-  code: 'ENOENT',
-  syscall: 'open',
-  path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.feoojoqnkud'
-}
-[Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.0h0fqs0y7wwd'] {
-  errno: -2,
-  code: 'ENOENT',
-  syscall: 'open',
-  path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.0h0fqs0y7wwd'
-}
- ⨯ [Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/server/app/favicon.ico/[__metadata_id__]/route/app-paths-manifest.json'] {
-  errno: -2,
-  code: 'ENOENT',
-  syscall: 'open',
-  path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/server/app/favicon.ico/[__metadata_id__]/route/app-paths-manifest.json'
-}
+[?25h

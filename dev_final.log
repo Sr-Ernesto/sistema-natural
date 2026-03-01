@@ -1,6 +1,6 @@
 
 > sistema-natural-nextjs@0.1.0 dev
-> next dev --turbopack
+> next dev --turbopack -p 3100
 
  ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
  We detected multiple lockfiles and selected the directory of /home/osbrai/.openclaw/workspace/package-lock.json as the root directory.
@@ -15,43 +15,49 @@
    - Environments: .env.local
 
  ✓ Starting...
- ✓ Ready in 869ms
+ ✓ Ready in 840ms
  ○ Compiling / ...
- ✓ Compiled / in 2.9s
- HEAD / 200 in 3394ms
- GET / 200 in 231ms
- ✓ Compiled /api/events in 337ms
- GET /favicon.ico?favicon.0b3bf435.ico 200 in 645ms
- POST /api/events 200 in 926ms
- GET / 200 in 161ms
- POST /api/events 200 in 486ms
- GET /favicon.ico?favicon.0b3bf435.ico 200 in 247ms
- GET / 200 in 158ms
- GET /favicon.ico?favicon.0b3bf435.ico 200 in 266ms
- POST /api/events 200 in 494ms
- ✓ Compiled in 55ms
- GET / 200 in 421ms
- POST /api/events 200 in 470ms
- GET /favicon.ico?favicon.0b3bf435.ico 200 in 224ms
- GET / 200 in 177ms
- GET /favicon.ico?favicon.0b3bf435.ico 200 in 270ms
- POST /api/events 200 in 450ms
- GET / 200 in 151ms
- GET /favicon.ico?favicon.0b3bf435.ico 200 in 248ms
- POST /api/events 200 in 501ms
- ✓ Compiled in 122ms
- ✓ Compiled in 64ms
- ✓ Compiled in 69ms
- GET / 200 in 398ms
- POST /api/events 200 in 493ms
- ✓ Compiled in 54ms
- ✓ Compiled in 46ms
-Killed
-
------
-[1m[31mFATAL[39m[0m: An unexpected Turbopack error occurred. A panic log has been written to /tmp/next-panic-59e945c722452541a248c66411ccbb54.log.
-
-To help make Turbopack better, report this error by clicking here: https://github.com/vercel/next.js/discussions/new?category=turbopack-error-report&title=Turbopack%20Error%3A%20%5Bproject%5D%2Fprojects%2Fsistema-natural-nextjs%2Fsrc%2Fapp%2Fglobals.css%20%5Bapp-client%5D%20%28css%29&body=Turbopack%20version%3A%20%6096f69990%60%0ANext.js%20version%3A%20%600.0.0%60%0A%0AError%20message%3A%0A%60%60%60%0ATurbopack%20Error%3A%20%5Bproject%5D%2Fprojects%2Fsistema-natural-nextjs%2Fsrc%2Fapp%2Fglobals.css%20%5Bapp-client%5D%20%28css%29%0A%60%60%60&labels=Turbopack,Turbopack%20Panic%20Backtrace
------
-
- ✓ Compiled in 82.7s
+ ✓ Compiled / in 2.8s
+ GET / 200 in 3255ms
+ GET / 200 in 124ms
+ ⚠ Cross origin request detected from 192.168.1.71 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ ✓ Compiled /api/events in 241ms
+ POST /api/events 200 in 931ms
+ ✓ Compiled /favicon.ico in 119ms
+ GET /favicon.ico?favicon.0b3bf435.ico 200 in 354ms
+ GET / 200 in 117ms
+ POST /api/events 200 in 667ms
+ ✓ Compiled in 798ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/server/app/page/app-build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/server/app/page/app-build-manifest.json'
+}
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 1179ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.f5t0l6q5tx7'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.f5t0l6q5tx7'
+}
+[Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/server/app/page/app-build-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/server/app/page/app-build-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.6lygeut0cov'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.6lygeut0cov'
+}
+[Error: ENOENT: no such file or directory, open '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.n72tm0vqw9'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/osbrai/.openclaw/workspace/projects/sistema-natural-nextjs/.next/static/development/_buildManifest.js.tmp.n72tm0vqw9'
+}

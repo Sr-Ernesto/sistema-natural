@@ -3,117 +3,105 @@
 import { BreathButton } from "@/components/ui/BreathButton";
 import { TopPill } from "@/components/sections/TopPill";
 import { HeroPromise } from "@/components/sections/HeroPromise";
-import { PainPoints } from "@/components/sections/PainPoints";
-import { CreacionesCarousel } from "@/components/sections/CreacionesCarousel";
-import { ProductMarquee } from "@/components/sections/ProductMarquee";
-import { BenefitsChecks } from "@/components/sections/BenefitsChecks";
-import { ClosingRitual } from "@/components/sections/ClosingRitual";
-import { ComunidadChat } from "@/components/sections/ComunidadChat";
+import { VideoSalesLetter } from "@/components/sections/VideoSalesLetter";
 import { StudentReviews } from "@/components/sections/StudentReviews";
 import { WhoAmI } from "@/components/sections/WhoAmI";
 import { FAQSection } from "@/components/sections/FAQSection";
+import { TrustBadges } from "@/components/ui/TrustBadges";
+import { WhatsAppFloat } from "@/components/ui/WhatsAppFloat";
 import { StickyOffer } from "@/components/sections/StickyOffer";
-import { OfferSection } from "@/components/sections/OfferSection";
-import { ValueCascade } from "@/components/sections/ValueCascade";
-import { SocialProofToast } from "@/components/ui/SocialProofToast";
-import { DynamicDate } from "@/components/ui/DynamicDate";
-import { HeroGeoAlert } from "@/components/ui/HeroGeoAlert";
-import { CostOfInaction } from "@/components/sections/CostOfInaction";
-import { TheDiscovery } from "@/components/sections/TheDiscovery";
-import { VideoSalesLetter } from "@/components/sections/VideoSalesLetter";
-import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { useCurrency } from "@/hooks/useCurrency";
-import { Suspense } from "react";
+import Image from "next/image";
 
-function HomeContent() {
-  const { price } = useCurrency();
+export default function Home() {
+  const { price, format } = useCurrency();
   const checkoutUrl = "https://pay.hotmart.com/F104652497O?checkoutMode=10";
 
   return (
     <main className="min-h-screen bg-[#fffefa] overflow-x-hidden">
-      {/* <SocialProofToast /> */}
       <TopPill />
+      <WhatsAppFloat />
+      <StickyOffer />
       
-      <RevealOnScroll>
-        <HeroPromise />
-      </RevealOnScroll>
+      <HeroPromise />
 
-      <VideoSalesLetter />
+      <div className="py-4 bg-white">
+        <VideoSalesLetter />
+      </div>
 
-      <RevealOnScroll>
-        <PainPoints />
-      </RevealOnScroll>
-
-      <TheDiscovery />
-
-      <RevealOnScroll>
-        <BenefitsChecks />
-      </RevealOnScroll>
-
-      <RevealOnScroll>
-        <OfferSection />
-      </RevealOnScroll>
-
-      <ValueCascade />
-
-      {/* Reemplazo de Alta Conversión: Garantía de Soberanía */}
-      <RevealOnScroll>
-        <section className="py-16 px-4 bg-[#f6e5ff]/30 border-y border-[#d6bdf5]/20">
-          <div className="max-w-[600px] mx-auto text-center">
-            <h2 className="font-serif text-3xl md:text-4xl text-[#303030] mb-6">
-              Pruébalo sin miedo, aquí la que manda eres tú
-            </h2>
-            <p className="font-sans text-lg md:text-xl text-[#4a4a4a] leading-relaxed mb-8">
-              Mira, estoy tan segura de que te va a encantar crear tus propias cosas, que te propongo un trato: 
-              <strong> Prueba la guía por 7 días.</strong> Si en una semana no sientes el orgullo de haber hecho 
-              tu primer labial o rubor mejor que el de marca, me escribes y te devuelvo cada centavo. 
-              Sin preguntas. Quiero que esto sea el inicio de tu libertad, no una carga.
-            </p>
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-[#d6bdf5]/30 mb-8">
-               <p className="font-sans text-sm font-bold text-[#8aad62] uppercase tracking-wider mb-2">
-                 Dato real para tu bolsillo:
-               </p>
-               <p className="font-serif italic text-xl text-[#303030]">
-                 "Lo que gastas en un solo sérum de marca, es lo que te cuesta aprender a hacer TODA tu cosmética para siempre."
-               </p>
+      <section className="py-12 px-4 bg-[#fdf8f0] border-y border-[#8aad62]/20 shadow-inner text-center">
+        <div className="max-w-md mx-auto">
+            {/* EL MOCKUP QUE FALTABA - Restaurado */}
+            <div className="mb-10 px-4">
+                <Image 
+                    src="/images/ebooks_hero.webp" 
+                    alt="Mockup Sistema Natural" 
+                    width={500} 
+                    height={400} 
+                    className="w-full h-auto drop-shadow-2xl animate-float"
+                    priority
+                />
             </div>
-          </div>
-        </section>
-      </RevealOnScroll>
 
-      <CreacionesCarousel />
-      <ProductMarquee />
+            <div className="mb-8 bg-white border-2 border-[#8aad62]/20 rounded-3xl p-6 text-left shadow-sm">
+                <p className="text-[10px] font-black text-[#8aad62] uppercase mb-3 tracking-widest text-center">El impacto en tu bolsillo:</p>
+                <div className="space-y-3">
+                    <div className="flex justify-between items-center border-b border-[#8aad62]/10 pb-2">
+                        <span className="font-sans text-sm text-[#4a4a4a]">Labial premium de marca:</span>
+                        <span className="font-sans font-bold text-[#d83a3a]">{format(35)}</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                        <span className="font-sans text-sm text-[#4a4a4a]">Tu propio labial natural:</span>
+                        <span className="font-sans font-bold text-[#8aad62]">{format(0.8)}</span>
+                    </div>
+                </div>
+            </div>
 
-      <section className="flex flex-col items-center py-10 px-4 bg-gradient-to-b from-transparent to-[#f6e5ff]/10">
-        <BreathButton href={checkoutUrl} src="bottom_final">
-          SÍ, QUIERO MI PIEL SANA POR {price}
-        </BreathButton>
-        <DynamicDate />
+            <div className="bg-white p-8 rounded-[2.5rem] shadow-xl border-2 border-[#8aad62]/30 relative overflow-hidden">
+                <div className="absolute top-0 right-0 bg-[#d83a3a] text-white text-[10px] font-black px-4 py-1 uppercase rotate-45 translate-x-4 translate-y-2">
+                    -70% OFF
+                </div>
+                <p className="text-black/40 text-xs font-bold uppercase mb-1">Precio de Lanzamiento:</p>
+                <div className="text-6xl font-black text-[#1a1a1a] tracking-tighter mb-6">{price}</div>
+                
+                <BreathButton href={checkoutUrl} src="price_block_center" className="w-full text-lg py-5 shadow-2xl">
+                    ¡SÍ, LO QUIERO AHORA!
+                </BreathButton>
+                
+                <TrustBadges />
+            </div>
+
+            <div className="mt-8 p-6 bg-white/50 rounded-2xl border border-dashed border-[#8aad62]/30 flex items-center gap-4 text-left">
+                <span className="text-3xl">🛡️</span>
+                <p className="text-xs text-[#4a4a4a] font-medium leading-relaxed">
+                    <strong>Garantía de 7 días:</strong> Mi palabra es tu seguridad. Si no te gusta, te devuelvo el 100%.
+                </p>
+            </div>
+        </div>
       </section>
 
-      <CostOfInaction />
+      <section className="py-12 bg-white">
+        <StudentReviews />
+      </section>
 
-      <StudentReviews />
-      
       <WhoAmI />
+      <FAQSection />
 
-      <RevealOnScroll>
-        <FAQSection />
-      </RevealOnScroll>
+      <section className="flex flex-col items-center py-20 px-4 bg-gradient-to-b from-[#fdf8f0] to-white border-t border-black/5">
+        <div className="text-center mb-10">
+            <h3 className="font-serif text-3xl text-[#303030] mb-2 font-bold tracking-tight">Recupera tu poder hoy</h3>
+        </div>
+        <BreathButton href={checkoutUrl} src="bottom_final_slide">
+          COMENZAR MI TRANSFORMACIÓN POR {price}
+        </BreathButton>
+        <div className="mt-8">
+            <TrustBadges />
+        </div>
+      </section>
 
-      <footer className="py-8 border-t border-black/5 text-center bg-white mb-20 md:mb-0">
-        <p className="text-xs text-black/40 font-medium tracking-wider uppercase">© 2026, Sabiduría Natural • Todos los derechos reservados</p>
+      <footer className="py-8 border-t border-black/5 text-center bg-gray-50">
+        <p className="text-[10px] text-black/30 font-bold uppercase tracking-widest">© 2026 Sabiduría Natural</p>
       </footer>
-
-      {/* <StickyOffer /> */}
     </main>
-  );
-}
-
-export default function Home() {
-  return (
-    <Suspense fallback={<div>Cargando...</div>}>
-      <HomeContent />
-    </Suspense>
   );
 }

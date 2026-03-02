@@ -11,29 +11,35 @@ export function PainPoints() {
   ];
 
   return (
-    <section className="py-6 px-3.5">
-      <div className="max-w-[520px] mx-auto">
-        <h2 className="font-serif text-[2.4rem] leading-[1.1] text-center text-[#111] mb-[18px]">
+    <section className="py-6 px-4 bg-white">
+      <div className="max-w-[400px] mx-auto">
+        <h2 className="font-serif text-[26px] leading-tight text-center text-[#303030] mb-6">
           Honestamente, <br/><span className="text-[#8aad62]">¿te has sentido así?</span>
         </h2>
-        <ul className="flex flex-col gap-3">
+        
+        <div className="space-y-2">
           {points.map((point, i) => (
-            <motion.li 
+            <motion.div 
               key={i}
-              whileHover={{ y: -2 }}
-              whileTap={{ y: 1 }}
+              initial={{ opacity: 0, y: 5 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3 p-3 rounded-xl bg-[#fdf8f0] border border-[#8aad62]/10"
             >
-              <div className="w-full flex items-center gap-2.5 bg-[#f6e5ff] border border-black/5 rounded-[14px] p-3 text-left shadow-[0_6px_14px_rgba(0,0,0,0.06)]">
-                <span className="text-[1.35rem] leading-none shrink-0 w-6.5 flex justify-center items-center">
-                  {point.emoji}
+              <span className="text-lg shrink-0 w-8 h-8 flex items-center justify-center bg-white rounded-full shadow-sm">
+                {point.emoji}
+              </span>
+              <div className="flex flex-col">
+                <span className="font-sans font-bold text-[13px] text-[#303030] leading-none mb-1">
+                  {point.text.split(': ')[0]}
                 </span>
-                <p className="font-sans text-base md:text-xl leading-[1.45] text-[#222]">
-                  <strong>{point.text.split(': ')[0]}:</strong> {point.text.split(': ')[1]}
+                <p className="font-sans text-[12px] leading-tight text-[#4a4a4a]">
+                  {point.text.split(': ')[1]}
                 </p>
               </div>
-            </motion.li>
+            </motion.div>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   );

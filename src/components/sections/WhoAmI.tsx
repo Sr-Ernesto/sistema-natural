@@ -3,43 +3,45 @@ import Image from "next/image";
 
 export function WhoAmI() {
   return (
-    <section className="py-20 px-4 bg-white overflow-hidden">
-      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+    <section className="py-10 px-4 bg-white overflow-hidden">
+      <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
         <RevealOnScroll>
-          <div className="relative w-full max-w-[450px] aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl border-8 border-[#fdf8f0] rotate-[-2deg]">
-            <Image 
+          <div className="relative w-full max-w-[280px] md:max-w-[400px] aspect-[4/5] rounded-[2rem] overflow-hidden shadow-xl border-4 border-[#fdf8f0] rotate-[-1deg] mx-auto">
+            <img 
                 src="/images/elena-author.png" 
-                alt="Elena - Autora de Sabiduría Natural" 
-                fill 
-                className="object-cover"
+                alt="Elena - Alquimia Soberana" 
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 onError={(e) => (e.currentTarget.src = 'https://ui-avatars.com/api/?name=Elena+Soberana&background=8aad62&color=fff&size=512')}
             />
           </div>
         </RevealOnScroll>
 
-        <div className="flex-1 text-left">
+        <div className="flex-1 text-center md:text-left">
           <RevealOnScroll>
-            <h2 className="font-serif text-4xl md:text-5xl text-[#303030] mb-8 leading-tight">
-              ¿Quién soy y por qué <br/> <span className="text-[#8aad62]">hago esto?</span>
+            <h2 className="font-serif text-[26px] md:text-5xl text-[#303030] mb-4 leading-tight">
+              ¿Quién es <span className="text-[#8aad62]">Elena</span> y cómo <br/> puede ayudarte?
             </h2>
           </RevealOnScroll>
 
-          <div className="space-y-6 font-sans text-lg md:text-xl text-[#4a4a4a] leading-relaxed">
+          <div className="space-y-4 font-sans text-[15px] md:text-xl text-[#4a4a4a] leading-relaxed">
             <p>
-              Hola, soy <strong>Elena</strong>. Soy madre y, como muchas mujeres latinas, mi vida dio un giro inesperado hace unos años cuando tuve que salir de mi amada <strong>Venezuela</strong>.
+              Hola, soy <strong>Elena</strong>. No soy una experta de laboratorio, soy una madre que tuvo que reinventarse desde cero.
             </p>
             
             <p>
-              Llegué a un nuevo país con las manos vacías, pero con el corazón lleno de ganas de sacar adelante a mis hijos. Honestamente, al principio no fue fácil.
+              Mi misión es simple: <strong>ayudarte a recuperar tu poder</strong>. Lo que aprendí en mi cocina para ahorrar, hoy es el sistema que te permitirá crear tu propia cosmética profesional.
             </p>
 
-            <p className="bg-[#fdf8f0] p-6 rounded-2xl border-l-4 border-[#8aad62] font-medium italic text-[#303030]">
-              "Fue en esa búsqueda de ahorrar y cuidar que nació lo que hoy llamas Sabiduría Natural. Empecé en mi propia cocina, probando recetas para no tener que pagar fortunas por químicos raros."
-            </p>
-
-            <p>
-              Hoy, después de años de aciertos y errores, he decidido compartir contigo todo lo que aprendí. No solo para que ahorres, sino para que sientas ese orgullo de decir: <strong>"Esto lo hice yo, con mis manos"</strong>.
-            </p>
+            <div className="grid grid-cols-2 gap-3 mt-6 max-w-[300px] mx-auto md:mx-0">
+              <div className="bg-[#fdf8f0] p-3 rounded-xl border border-[#8aad62]/10">
+                <p className="text-[#8aad62] font-black text-xl mb-0.5">+8k</p>
+                <p className="text-[9px] uppercase font-bold text-gray-400">Alumnas</p>
+              </div>
+              <div className="bg-[#fdf8f0] p-3 rounded-xl border border-[#8aad62]/10">
+                <p className="text-[#8aad62] font-black text-xl mb-0.5">+130</p>
+                <p className="text-[9px] uppercase font-bold text-gray-400">Recetas</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -3,18 +3,22 @@
 import { BreathButton } from "@/components/ui/BreathButton";
 import { TopPill } from "@/components/sections/TopPill";
 import { HeroPromise } from "@/components/sections/HeroPromise";
+import { PainPoints } from "@/components/sections/PainPoints";
 import { VideoSalesLetter } from "@/components/sections/VideoSalesLetter";
+import { ValueCascade } from "@/components/sections/ValueCascade";
 import { StudentReviews } from "@/components/sections/StudentReviews";
+import { ProgramPresentation } from "@/components/sections/ProgramPresentation";
 import { WhoAmI } from "@/components/sections/WhoAmI";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { TrustBadges } from "@/components/ui/TrustBadges";
 import { WhatsAppFloat } from "@/components/ui/WhatsAppFloat";
 import { StickyOffer } from "@/components/sections/StickyOffer";
+import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { useCurrency } from "@/hooks/useCurrency";
-import Image from "next/image";
+import { Suspense } from "react";
 
-export default function Home() {
-  const { price, format } = useCurrency();
+function HomeContent() {
+  const { price } = useCurrency();
   const checkoutUrl = "https://pay.hotmart.com/F104652497O?checkoutMode=10";
 
   return (
@@ -22,70 +26,77 @@ export default function Home() {
       <TopPill />
       <WhatsAppFloat />
       <StickyOffer />
-      
+
+      {/* ============================================
+          PASO 1: HOOK (3 seg) — Hero compacto
+          ============================================ */}
       <HeroPromise />
 
-      <div className="py-4 bg-white">
-        <VideoSalesLetter />
-      </div>
+      {/* ============================================
+          PASO 2: VIDEO DEMO — INMEDIATO después del hook
+          La persona debe VER el video sin scroll en móvil
+          ============================================ */}
+      <VideoSalesLetter />
 
-      <section className="py-12 px-4 bg-[#fdf8f0] border-y border-[#8aad62]/20 shadow-inner text-center">
-        <div className="max-w-md mx-auto">
-            {/* EL MOCKUP QUE FALTABA - Restaurado */}
-            <div className="mb-10 px-4">
-                <Image 
-                    src="/images/ebooks_hero.webp" 
-                    alt="Mockup Sistema Natural" 
-                    width={500} 
-                    height={400} 
-                    className="w-full h-auto drop-shadow-2xl animate-float"
-                    priority
-                />
-            </div>
+      {/* ============================================
+          PASO 3: AGITAR EL DOLOR
+          ============================================ */}
+      <RevealOnScroll>
+        <PainPoints />
+      </RevealOnScroll>
 
-            <div className="mb-8 bg-white border-2 border-[#8aad62]/20 rounded-3xl p-6 text-left shadow-sm">
-                <p className="text-[10px] font-black text-[#8aad62] uppercase mb-3 tracking-widest text-center">El impacto en tu bolsillo:</p>
-                <div className="space-y-3">
-                    <div className="flex justify-between items-center border-b border-[#8aad62]/10 pb-2">
-                        <span className="font-sans text-sm text-[#4a4a4a]">Labial premium de marca:</span>
-                        <span className="font-sans font-bold text-[#d83a3a]">{format(35)}</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                        <span className="font-sans text-sm text-[#4a4a4a]">Tu propio labial natural:</span>
-                        <span className="font-sans font-bold text-[#8aad62]">{format(0.8)}</span>
-                    </div>
-                </div>
-            </div>
+      {/* Presentación compacta del entregable principal */}
+      <ProgramPresentation />
 
-            <div className="bg-white p-8 rounded-[2.5rem] shadow-xl border-2 border-[#8aad62]/30 relative overflow-hidden">
-                <div className="absolute top-0 right-0 bg-[#d83a3a] text-white text-[10px] font-black px-4 py-1 uppercase rotate-45 translate-x-4 translate-y-2">
-                    -70% OFF
-                </div>
-                <p className="text-black/40 text-xs font-bold uppercase mb-1">Precio de Lanzamiento:</p>
-                <div className="text-6xl font-black text-[#1a1a1a] tracking-tighter mb-6">{price}</div>
-                
-                <BreathButton href={checkoutUrl} src="price_block_center" className="w-full text-lg py-5 shadow-2xl">
-                    ¡SÍ, LO QUIERO AHORA!
-                </BreathButton>
-                
-                <TrustBadges />
-            </div>
+      {/* ============================================
+          PASO 4: QUÉ INCLUYE + PRECIO + CTA
+          ValueCascade ya tiene: lista de items, bonos,
+          precio con oldPrice tachado, y CTA.
+          Esta es LA ÚNICA sección de oferta.
+          ============================================ */}
+      <ValueCascade />
 
-            <div className="mt-8 p-6 bg-white/50 rounded-2xl border border-dashed border-[#8aad62]/30 flex items-center gap-4 text-left">
-                <span className="text-3xl">🛡️</span>
-                <p className="text-xs text-[#4a4a4a] font-medium leading-relaxed">
-                    <strong>Garantía de 7 días:</strong> Mi palabra es tu seguridad. Si no te gusta, te devuelvo el 100%.
-                </p>
-            </div>
-        </div>
-      </section>
-
-      <section className="py-12 bg-white">
-        <StudentReviews />
-      </section>
-
+      {/* Elena — la persona detrás del producto después de mostrar la oferta */}
       <WhoAmI />
-      <FAQSection />
+
+      {/* ============================================
+          PASO 5: GARANTÍA
+          ============================================ */}
+      <RevealOnScroll>
+        <section className="py-16 px-4 bg-[#f6e5ff]/30 border-y border-[#d6bdf5]/20">
+          <div className="max-w-[600px] mx-auto text-center">
+            <h2 className="font-serif text-3xl md:text-4xl text-[#303030] mb-6">
+              Pruébalo sin miedo, aquí la que manda eres tú
+            </h2>
+            <p className="font-sans text-lg md:text-xl text-[#4a4a4a] leading-relaxed mb-8">
+              Mira, estoy tan segura de que te va a encantar crear tus propias cosas, que te propongo un trato: 
+              <strong> Prueba la guía por 7 días.</strong> Si en una semana no sientes el orgullo de haber hecho 
+              tu primer labial o tu crema mejor que la de marca, me escribes y te devuelvo cada centavo. 
+              Sin preguntas. Quiero que esto sea el inicio de tu libertad, no una carga.
+            </p>
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-[#d6bdf5]/30 mb-8">
+               <p className="font-sans text-sm font-bold text-[#8aad62] uppercase tracking-wider mb-2">
+                 Dato real para tu bolsillo:
+               </p>
+               <p className="font-serif italic text-xl text-[#303030]">
+                 &quot;Lo que gastas en un solo sérum de marca, es lo que te cuesta aprender a hacer TODA tu cosmética para siempre.&quot;
+               </p>
+            </div>
+          </div>
+        </section>
+      </RevealOnScroll>
+
+      {/* ============================================
+          PASO 6: PRUEBA SOCIAL
+          ============================================ */}
+      <StudentReviews />
+
+      {/* ============================================
+          PASO 7: FAQ + CTA FINAL
+          ============================================ */}
+      <RevealOnScroll>
+        <FAQSection />
+      </RevealOnScroll>
 
       <section className="flex flex-col items-center py-20 px-4 bg-gradient-to-b from-[#fdf8f0] to-white border-t border-black/5">
         <div className="text-center mb-10">
@@ -99,9 +110,17 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="py-8 border-t border-black/5 text-center bg-gray-50">
-        <p className="text-[10px] text-black/30 font-bold uppercase tracking-widest">© 2026 Sabiduría Natural</p>
+      <footer className="py-8 border-t border-black/5 text-center bg-white mb-20 md:mb-0">
+        <p className="text-xs text-black/40 font-medium tracking-wider uppercase">© 2026, Sabiduría Natural • Todos los derechos reservados</p>
       </footer>
     </main>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<div>Cargando...</div>}>
+      <HomeContent />
+    </Suspense>
   );
 }
